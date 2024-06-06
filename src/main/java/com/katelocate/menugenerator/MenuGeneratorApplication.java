@@ -17,13 +17,4 @@ public class MenuGeneratorApplication {
 		SpringApplication.run(MenuGeneratorApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner() {
-		return args -> {
-			Recepie recepie = new Recepie(1, "Boiled Eggs",
-					"Put an egg in a pot with cold water so that it covers an egg, wait until the water boils. " +
-							"Simmer for 8 minutes. Cool it down with running water in a sink.");
-            logger.info("Recepie created");
-		};
-	};
 }
