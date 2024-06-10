@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class RecepieRepository {
@@ -15,8 +16,23 @@ public class RecepieRepository {
         return recepies;
     }
 
-    Recepie findById(Integer id){
-        return recepies.stream().filter(recepie -> recepie.id() == id).findFirst().get();
+    Optional<Recepie> findById(Integer id){
+        return recepies.stream().filter(recepie -> recepie.id() == id).findFirst();
+    }
+
+    void create(Recepie recepie) {
+        recepies.add(recepie);
+    }
+
+    void update(Recepie recepie, Integer id) {
+        Optional<Recepie> existingRecepie = findById(id);
+        if (existingRecepie.isPresent()) {
+            recepies.set(recepies.indexOf(existingRecepie.get()), recepie);
+        }
+    }
+
+    void delete(Integer id) {
+        recepies.removeIf(recepie -> recepie.id().equals(id));
     }
 
     @PostConstruct
