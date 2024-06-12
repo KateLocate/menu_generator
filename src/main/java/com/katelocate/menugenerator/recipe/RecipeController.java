@@ -2,7 +2,6 @@ package com.katelocate.menugenerator.recipe;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,7 +25,7 @@ public class RecipeController {
     Recipe findById(@PathVariable Integer id) {
         Optional<Recipe> recipe = recipeRepository.findById(id);
         if (recipe.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            throw new RecipeNotFoundException();
         }
         return recipe.get();
     }
