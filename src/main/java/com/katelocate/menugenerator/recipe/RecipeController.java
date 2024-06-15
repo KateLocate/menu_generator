@@ -1,5 +1,6 @@
 package com.katelocate.menugenerator.recipe;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,13 +33,13 @@ public class RecipeController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
-    void create(@RequestBody Recipe recipe) {
+    void create(@Valid @RequestBody Recipe recipe) {
         recipeRepository.create(recipe);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
-    void update(@RequestBody Recipe recipe, @PathVariable Integer id) {
+    void update(@Valid @RequestBody Recipe recipe, @PathVariable Integer id) {
         recipeRepository.update(recipe, id);
     }
 
