@@ -21,31 +21,31 @@ public class RecipeController {
     List<Recipe> findAll() {
         return recipeRepository.findAll();
     }
-
-    @GetMapping("/{id}")
-    Recipe findById(@PathVariable Integer id) {
-        Optional<Recipe> recipe = recipeRepository.findById(id);
-        if (recipe.isEmpty()) {
-            throw new RecipeNotFoundException();
-        }
-        return recipe.get();
-    }
-
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("")
-    void create(@Valid @RequestBody Recipe recipe) {
-        recipeRepository.create(recipe);
-    }
-
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PutMapping("/{id}")
-    void update(@Valid @RequestBody Recipe recipe, @PathVariable Integer id) {
-        recipeRepository.update(recipe, id);
-    }
-
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{id}")
-    void delete(@PathVariable Integer id) {
-        recipeRepository.delete(id);
-    }
+//
+//    @GetMapping("/{id}")
+//    Recipe findById(@PathVariable Integer id) {
+//        Optional<Recipe> recipe = recipeRepository.findById(id);
+//        if (recipe.isEmpty()) {
+//            throw new RecipeNotFoundException();
+//        }
+//        return recipe.get();
+//    }
+//
+//    @ResponseStatus(HttpStatus.CREATED)
+//    @PostMapping("")
+//    void create(@Valid @RequestBody Recipe recipe) {
+//        recipeRepository.create(recipe);
+//    }
+//
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    @PutMapping("/{id}")
+//    void update(@Valid @RequestBody Recipe recipe, @PathVariable Integer id) {
+//        recipeRepository.update(recipe, id);
+//    }
+//
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    @DeleteMapping("/{id}")
+//    void delete(@PathVariable Integer id) {
+//        recipeRepository.delete(id);
+//    }
 }
