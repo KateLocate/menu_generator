@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS Recipe (
+   id INT NOT NULL,
+   title VARCHAR(250) NOT NULL,
+   body VARCHAR(max) NOT NULL,
+   PRIMARY KEY (id)
+);
