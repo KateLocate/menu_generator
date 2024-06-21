@@ -6,20 +6,7 @@ public record Recipe(
         Integer id,
         @NotEmpty
         String title,
+        @NotEmpty
         RecipeType recipeType,
         String body
-){
-    public Recipe {
-//        boolean isRightType = false;
-//        for (RecipeType type : RecipeType.values()) {
-//            if (type == recipeType) {
-//                isRightType = true;
-//                break;
-//            }
-//        }
-//        if (!isRightType) {
-//            throw new IllegalArgumentException("Choose existing recipe type.");
-//        }
-        
-    }
-}
+){};
