@@ -1,6 +1,6 @@
 package com.katelocate.menugenerator.recipe;
 
-enum RecipeType {
+public enum RecipeType {
     UNKNOWN,
     BREAKFAST,
     DINNER,
