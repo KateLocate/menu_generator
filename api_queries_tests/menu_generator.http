@@ -1,0 +1,32 @@
+### Find ALl Recipes
+GET http://localhost:8080/api/recipes
+
+### Find Recipe By ID
+GET http://localhost:8080/api/recipes/2
+
+
+### Create new Recipe
+POST http://localhost:8080/api/recipes
+Content-Type: application/json
+
+{
+    "id": 3,
+    "title": "Baked Cookies",
+    "recipeType": 2,
+    "body": "Take 85g of unsalted butter, 130g of flour, 35g of sugar powder, 1 egg, mix, spread on the baking sheet
+     and cover with another sheet. Cool for 30 min in a fridge. Form cookies, bake at 150C for 30 min. Ready!"
+}
+
+### Update an existing Recipe
+PUT http://localhost:8080/api/recipes/3
+Content-Type: application/json
+
+{
+    "id": 3,
+    "title": "Baked Cookies",
+    "recipeType": 5,
+    "body": "Nah"
+}
+
+### Delete a Recipe
+DELETE http://localhost:8080/api/recipes/3
