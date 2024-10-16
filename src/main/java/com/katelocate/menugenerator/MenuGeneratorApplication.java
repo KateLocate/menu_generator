@@ -24,7 +24,7 @@ public class MenuGeneratorApplication {
 //	@Bean
 //	CommandLineRunner runner(UserRestClient client) {
 //		return args -> {
-//			List<User> users = client.findall();
+//			List<User> users = client.findAll();
 //			System.out.println(users);
 //		};
 //	}
