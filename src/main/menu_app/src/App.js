@@ -22,17 +22,45 @@ const App = () => {
     return <p>Loading...</p>;
   }
 
+  function Recipe({ recipe, visible }) {
+    if (visible) {
+      return <p>{ recipe.body }</p>;
+    }
+    return null;
+  }
+
+  function RecipeButton({ recipe }) {
+    const [visible, setVisible] = useState(false);
+
+    function handleRecipeButtonClick() {
+      setVisible(!visible);
+      console.log(visible)
+    }
+
+    return (
+      <div >
+        <button onClick={handleRecipeButtonClick}>
+          { recipe.title }
+        </button>
+        <p style={{fontSize:"0.5em"}}>
+          <Recipe visible={ visible } recipe={ recipe }/>
+        </p>
+      </div>
+    );
+  }
+
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <div className="App-intro">
-          <h2>JUG List</h2>
-          {recipes.map(recipe =>
-            <div key={recipe.id}>
-              {recipe.title}
+          <h2>Menu Generator</h2>
+          { recipes.map(recipe =>
+            <div key={ recipe.id }>
+              <RecipeButton recipe={ recipe } />
             </div>
-          )}
+          ) }
         </div>
       </header>
     </div>
