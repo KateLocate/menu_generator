@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 
 const App = () => {
-
   const [recipes, setGroups] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -22,14 +21,14 @@ const App = () => {
     return <p>Loading...</p>;
   }
 
-  function Recipe({ recipe, visible }) {
+  function Recipe({recipe, visible}) {
     if (visible) {
-      return <p>{ recipe.body }</p>;
+      return <p>{recipe.body}</p>;
     }
     return null;
   }
 
-  function RecipeButton({ recipe }) {
+  function RecipeButton({recipe}) {
     const [visible, setVisible] = useState(false);
 
     function handleRecipeButtonClick() {
@@ -38,12 +37,12 @@ const App = () => {
     }
 
     return (
-      <div >
-        <button onClick={handleRecipeButtonClick}>
-          { recipe.title }
+      <div>
+        <button className='recipeDetails' onClick={handleRecipeButtonClick}>
+          {recipe.title}
         </button>
-        <p style={{fontSize:"0.5em"}}>
-          <Recipe visible={ visible } recipe={ recipe }/>
+        <p>
+          <Recipe visible={visible} recipe={recipe}/>
         </p>
       </div>
     );
@@ -52,17 +51,15 @@ const App = () => {
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="App-intro">
-          <h2>Menu Generator</h2>
-          { recipes.map(recipe =>
-            <div key={ recipe.id }>
-              <RecipeButton recipe={ recipe } />
-            </div>
-          ) }
-        </div>
-      </header>
+    <div className="app">
+      <h1>Menu Generator</h1>
+      <div className='container'>
+        { recipes.map(recipe =>
+          <div className='recipe' key={recipe.id}>
+            <RecipeButton recipe={recipe} />
+          </div>
+        )};
+      </div>
     </div>
   );
 }
