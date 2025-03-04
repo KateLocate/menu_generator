@@ -50,9 +50,13 @@ public class RecipeRepository {
     }
 
     public void delete(Integer id) {
-        var updated = jdbcClient.sql("DELETE FROM Recipe WHERE id = :id")
+        jdbcClient.sql("DELETE FROM Recipe WHERE id = :id")
                 .param("id", id)
                 .update();
+    }
+
+    public void deleteAll() {
+        jdbcClient.sql("DELETE FROM Recipe").update();
     }
 
     public int count() {
