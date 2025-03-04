@@ -10,12 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class MenuGeneratorApplicationTests {
 
-	@Autowired
-	private MenuGeneratorApplication app;
+    @Autowired
+    private MenuGeneratorApplication app;
 
-	@Test
-	void contextLoads() throws Exception {
-			assertThat(app).isNotNull();
-	}
+    @Test
+    void contextLoads() throws Exception {
+        assertThat(app).isNotNull();
+    }
 
 }
+
