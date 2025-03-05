@@ -7,7 +7,10 @@ import com.katelocate.menugenerator.recipe.RecipeType;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -20,9 +23,8 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.PostgreSQLContainer;
 
-import static org.hamcrest.Matchers.equalTo;
+import org.testcontainers.containers.PostgreSQLContainer;
 
 import java.util.List;
 
@@ -65,7 +67,15 @@ public class RecipeRepositoryTests {
 
     @Test
     void shouldCreateRecipe() {
-//        ???? Test shouldGetRecipeById covers this functionality
+        int originalTableSize = recipeRepository.findAll().size();
+        List<Recipe> recipes = List.of(
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"),
+                new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito"),
+                new Recipe(2, "Snack", RecipeType.SNACK, "Potato chips")
+        );
+        recipeRepository.saveAll(recipes);
+        int afterInsertionTableSize = recipeRepository.findAll().size();
+        assertThat(afterInsertionTableSize - originalTableSize).isEqualTo(3);
     }
 
     @Test
@@ -95,7 +105,12 @@ public class RecipeRepositoryTests {
                 .get("/api/recipes/0")
                 .then()
                 .statusCode(200)
-                .body(equalTo("{\"id\":0,\"title\":\"Breakfast\",\"recipeType\":\"BREAKFAST\",\"body\":\"Scramble eggs\"}"));
+                .body(equalTo(
+                        """
+                            {"id":0,"title":"Breakfast","recipeType":"BREAKFAST","body":"Scramble eggs"}
+                        """
+                        )
+                );
     }
 
     @Test
@@ -109,7 +124,12 @@ public class RecipeRepositoryTests {
                 .get("/api/recipes/0")
                 .then()
                 .statusCode(200)
-                .body(equalTo("{\"id\":0,\"title\":\"Scramble Eggs\",\"recipeType\":\"BREAKFAST\",\"body\":\"Scramble eggs\"}"));
+                .body(equalTo(
+                        """
+                            {"id":0,"title":"Scramble Eggs","recipeType":"BREAKFAST","body":"Scramble eggs"}
+                        """
+                        )
+                );
 
     }
 
@@ -128,6 +148,41 @@ public class RecipeRepositoryTests {
 
     @Test
     void shouldDeleteAllRecipes() {
+        List<Recipe> recipes = List.of(
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"),
+                new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito")
+        );
+        recipeRepository.saveAll(recipes);
+        recipeRepository.create(new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"));
 
+        recipeRepository.deleteAll();
+        int afterDeletionTableSize = recipeRepository.findAll().size();
+        assertThat(afterDeletionTableSize).isEqualTo(0);
+    }
+
+    @Test
+    void shouldCountAllRecipes() {
+        List<Recipe> recipes = List.of(
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"),
+                new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito"),
+                new Recipe(2, "Snack", RecipeType.SNACK, "Potato chips"),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, "Mochi")
+        );
+        recipeRepository.saveAll(recipes);
+
+        assertThat(recipeRepository.count()).isEqualTo(4);
+    }
+
+    @Test
+    void shouldSaveAll() {
+        List<Recipe> recipes = List.of(
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"),
+                new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito"),
+                new Recipe(2, "Snack", RecipeType.SNACK, "Potato chips"),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, "Mochi")
+        );
+        recipeRepository.saveAll(recipes);
+
+        assertThat(recipeRepository.count()).isEqualTo(4);
     }
 }
