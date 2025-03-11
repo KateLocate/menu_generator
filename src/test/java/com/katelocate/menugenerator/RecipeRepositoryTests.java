@@ -21,12 +21,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 
 import org.testcontainers.containers.PostgreSQLContainer;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -79,16 +82,26 @@ public class RecipeRepositoryTests {
         recipeRepository.deleteAll();
     }
 
+    public static class RecipeRowMapper implements RowMapper<Recipe> {
+
+        @Override
+        public Recipe mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+
+            return new Recipe(
+                    resultSet.getInt("id"),
+                    resultSet.getString("title"),
+                    RecipeType.valueOf(resultSet.getString("recipeType")),
+                    resultSet.getString("body")
+            );
+        }
+    }
+
     @Test
     void shouldCreateRecipe() {
-        List<Recipe> recipes = List.of(
-                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"),
-                new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito"),
-                new Recipe(2, "Snack", RecipeType.SNACK, "Potato chips")
-        );
-        recipeRepository.saveAll(recipes);
-        int afterInsertionTableSize = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM Recipe", Integer.class);
-        assertThat(afterInsertionTableSize).isEqualTo(3);
+        Recipe recipe = new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs");
+        recipeRepository.create(recipe);
+
+        assertThat(jdbcTemplate.queryForObject("SELECT * FROM Recipe", new RecipeRowMapper())).isEqualTo(recipe);
     }
 
     @Test
@@ -99,13 +112,7 @@ public class RecipeRepositoryTests {
         );
         recipeRepository.saveAll(recipes);
 
-        RestAssured.given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get("/api/recipes")
-                .then()
-                .statusCode(200)
-                .body(".", hasSize(2));
+        assertThat(jdbcTemplate.query("SELECT * FROM Recipe WHERE id IN (0, 1)", new RecipeRowMapper())).isEqualTo(recipes);
     }
 
     @Test
@@ -113,7 +120,7 @@ public class RecipeRepositoryTests {
         Recipe recipe = new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Boiled eggs");
         recipeRepository.create(recipe);
 
-        assertThat(recipeRepository.findById(0).get()).isEqualTo(recipe);
+        assertThat(jdbcTemplate.queryForObject("SELECT * FROM Recipe WHERE id = 0", new RecipeRowMapper())).isEqualTo(recipe);
     }
 
     @Test
@@ -122,21 +129,22 @@ public class RecipeRepositoryTests {
         recipeRepository.create(new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"));
         recipeRepository.update(updatedRecipe, 0);
 
-        assertThat(recipeRepository.findById(0).get()).isEqualTo(updatedRecipe);
+        assertThat(jdbcTemplate.queryForObject("SELECT * FROM Recipe WHERE id = 0", new RecipeRowMapper())).isEqualTo(updatedRecipe);
 
     }
 
     @Test
     void shouldDeleteRecipe() {
-        recipeRepository.create(new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"));
-        recipeRepository.delete(0);
+        List<Recipe> recipes = List.of(
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"),
+                new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito"),
+                new Recipe(2, "Snack", RecipeType.SNACK, "Potato chips")
+        );
+        recipeRepository.saveAll(recipes);
+        recipeRepository.delete(1);
 
-        RestAssured.given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get("/api/recipes/0")
-                .then()
-                .statusCode(404);
+        assertThat(jdbcTemplate.queryForObject("SELECT COUNT(*) FROM Recipe WHERE id = 1", Integer.class)).isEqualTo(0);
+        assertThat(jdbcTemplate.queryForObject("SELECT COUNT(*) FROM Recipe", Integer.class)).isEqualTo(2);
     }
 
     @Test
@@ -146,10 +154,9 @@ public class RecipeRepositoryTests {
                 new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito")
         );
         recipeRepository.saveAll(recipes);
-
         recipeRepository.deleteAll();
-        int afterDeletionTableSize = recipeRepository.findAll().size();
-        assertThat(afterDeletionTableSize).isEqualTo(0);
+
+        assertThat(jdbcTemplate.queryForObject("SELECT COUNT(*) FROM Recipe", Integer.class)).isEqualTo(0);
     }
 
     @Test
@@ -162,7 +169,7 @@ public class RecipeRepositoryTests {
         );
         recipeRepository.saveAll(recipes);
 
-        assertThat(recipeRepository.count()).isEqualTo(4);
+        assertThat(jdbcTemplate.queryForObject("SELECT COUNT(*) FROM Recipe", Integer.class)).isEqualTo(4);
     }
 
     @Test
@@ -175,6 +182,6 @@ public class RecipeRepositoryTests {
         );
         recipeRepository.saveAll(recipes);
 
-        assertThat(recipeRepository.findAll()).isEqualTo(recipes);
+        assertThat(jdbcTemplate.query("SELECT * FROM Recipe", new RecipeRowMapper())).isEqualTo(recipes);
     }
 }
