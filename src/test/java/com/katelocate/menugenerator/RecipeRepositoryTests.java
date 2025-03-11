@@ -10,7 +10,6 @@ import io.restassured.http.ContentType;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.equalTo;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -21,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 
@@ -39,15 +40,28 @@ public class RecipeRepositoryTests {
             "postgres:16-alpine"
     );
 
+    static JdbcTemplate jdbcTemplate;
+
+    static void jdbcTemplateSetup() {
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setUrl(postgres.getJdbcUrl());
+        dataSource.setUsername(postgres.getUsername());
+        dataSource.setPassword(postgres.getPassword());
+        jdbcTemplate = new JdbcTemplate(dataSource);
+    }
+
+
     @BeforeAll
     static void beforeAll() {
         postgres.start();
+        jdbcTemplateSetup();
     }
 
     @AfterAll
     static void afterAll() {
         postgres.stop();
     }
+
 
     @DynamicPropertySource
     static void configureProperties(DynamicPropertyRegistry registry) {
@@ -67,15 +81,14 @@ public class RecipeRepositoryTests {
 
     @Test
     void shouldCreateRecipe() {
-        int originalTableSize = recipeRepository.findAll().size();
         List<Recipe> recipes = List.of(
                 new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"),
                 new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito"),
                 new Recipe(2, "Snack", RecipeType.SNACK, "Potato chips")
         );
         recipeRepository.saveAll(recipes);
-        int afterInsertionTableSize = recipeRepository.findAll().size();
-        assertThat(afterInsertionTableSize - originalTableSize).isEqualTo(3);
+        int afterInsertionTableSize = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM Recipe", Integer.class);
+        assertThat(afterInsertionTableSize).isEqualTo(3);
     }
 
     @Test
@@ -96,40 +109,20 @@ public class RecipeRepositoryTests {
     }
 
     @Test
-    void shouldGetRecipeById() {
-        recipeRepository.create(new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"));
+    void shouldFindRecipeById() {
+        Recipe recipe = new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Boiled eggs");
+        recipeRepository.create(recipe);
 
-        RestAssured.given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get("/api/recipes/0")
-                .then()
-                .statusCode(200)
-                .body(equalTo(
-                        """
-                            {"id":0,"title":"Breakfast","recipeType":"BREAKFAST","body":"Scramble eggs"}
-                        """
-                        )
-                );
+        assertThat(recipeRepository.findById(0).get()).isEqualTo(recipe);
     }
 
     @Test
     void shouldUpdateRecipe() {
+        Recipe updatedRecipe = new Recipe(0, "Scramble Eggs", RecipeType.BREAKFAST, "Scramble eggs");
         recipeRepository.create(new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"));
-        recipeRepository.update(new Recipe(0, "Scramble Eggs", RecipeType.BREAKFAST, "Scramble eggs"), 0);
+        recipeRepository.update(updatedRecipe, 0);
 
-        RestAssured.given()
-                .contentType(ContentType.JSON)
-                .when()
-                .get("/api/recipes/0")
-                .then()
-                .statusCode(200)
-                .body(equalTo(
-                        """
-                            {"id":0,"title":"Scramble Eggs","recipeType":"BREAKFAST","body":"Scramble eggs"}
-                        """
-                        )
-                );
+        assertThat(recipeRepository.findById(0).get()).isEqualTo(updatedRecipe);
 
     }
 
@@ -153,7 +146,6 @@ public class RecipeRepositoryTests {
                 new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito")
         );
         recipeRepository.saveAll(recipes);
-        recipeRepository.create(new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"));
 
         recipeRepository.deleteAll();
         int afterDeletionTableSize = recipeRepository.findAll().size();
@@ -183,6 +175,6 @@ public class RecipeRepositoryTests {
         );
         recipeRepository.saveAll(recipes);
 
-        assertThat(recipeRepository.count()).isEqualTo(4);
+        assertThat(recipeRepository.findAll()).isEqualTo(recipes);
     }
 }
