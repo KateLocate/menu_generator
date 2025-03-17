@@ -14,9 +14,8 @@ class MenuGeneratorApplicationTests {
     private MenuGeneratorApplication app;
 
     @Test
-    void contextLoads() throws Exception {
+    void contextLoads() {
         assertThat(app).isNotNull();
     }
 
 }
-
