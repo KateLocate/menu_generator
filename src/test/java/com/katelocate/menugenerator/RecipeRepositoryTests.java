@@ -4,8 +4,6 @@ import com.katelocate.menugenerator.recipe.Recipe;
 import com.katelocate.menugenerator.recipe.RecipeRepository;
 import com.katelocate.menugenerator.recipe.RecipeType;
 
-import io.restassured.RestAssured;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.AfterAll;
@@ -32,9 +30,6 @@ import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class RecipeRepositoryTests {
-
-    @LocalServerPort
-    private Integer port;
 
     static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
             "postgres:16-alpine"
@@ -75,7 +70,6 @@ public class RecipeRepositoryTests {
 
     @BeforeEach
     void setUp() {
-        RestAssured.baseURI = "http://localhost:" + port;
         recipeRepository.deleteAll();
     }
 
