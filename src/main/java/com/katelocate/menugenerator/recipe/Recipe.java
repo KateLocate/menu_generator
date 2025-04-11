@@ -6,7 +6,6 @@ public record Recipe(
         Integer id,
         @NotEmpty
         String title,
-        @NotEmpty
         RecipeType recipeType,
         String body
 ){};
