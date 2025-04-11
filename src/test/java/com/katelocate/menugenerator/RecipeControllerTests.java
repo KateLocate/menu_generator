@@ -27,6 +27,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -105,7 +106,7 @@ public class RecipeControllerTests {
                 .when()
                     .get("")
                 .then()
-                    .statusCode(200)
+                    .statusCode(HttpStatus.OK.value())
                     .body(".", hasSize(4));
     }
 
@@ -132,11 +133,11 @@ public class RecipeControllerTests {
             );
             given()
                     .contentType(ContentType.JSON)
-                    .body(jsonRecipe.toString())
+                    .body(jsonRecipe)
                     .when()
                         .post("")
                     .then()
-                        .statusCode(201);
+                        .statusCode(HttpStatus.CREATED.value());
         } catch (IOException e) {
             logger.severe("Failed to read test JSON.");
             assert false;
@@ -155,8 +156,8 @@ public class RecipeControllerTests {
                     )
             );
 
-            ObjectMapper mapper = new ObjectMapper();
-            Recipe targetRecipe = mapper.readValue(jsonRecipe, Recipe.class);
+            ObjectMapper jsonMapper = new ObjectMapper();
+            Recipe targetRecipe = jsonMapper.readValue(jsonRecipe, Recipe.class);
 
             given()
                     .contentType(ContentType.JSON)
@@ -164,7 +165,7 @@ public class RecipeControllerTests {
                     .when()
                         .put("/" + targetRecipe.id())
                     .then()
-                        .statusCode(204);
+                        .statusCode(HttpStatus.NO_CONTENT.value());
 
             Recipe updatedRecipe = given()
                     .contentType(ContentType.JSON)
@@ -186,15 +187,15 @@ public class RecipeControllerTests {
 
         given()
                 .when()
-                .delete("/" + targetRecipe.id())
+                    .delete("/" + targetRecipe.id())
                 .then()
-                .statusCode(204);
+                    .statusCode(HttpStatus.NO_CONTENT.value());
 
         given()
                 .when()
-                .get("/" + targetRecipe.id())
+                    .get("/" + targetRecipe.id())
                 .then()
-                .statusCode(404);
+                    .statusCode(HttpStatus.NOT_FOUND.value());
     }
 
 }
