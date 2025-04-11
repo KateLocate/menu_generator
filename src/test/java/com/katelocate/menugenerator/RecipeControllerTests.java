@@ -1,7 +1,6 @@
 package com.katelocate.menugenerator;
 
 import com.katelocate.menugenerator.recipe.Recipe;
-import com.katelocate.menugenerator.recipe.RecipeController;
 import com.katelocate.menugenerator.recipe.RecipeType;
 import com.katelocate.menugenerator.recipe.RecipeRepository;
 
@@ -35,6 +34,8 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 
 import org.testcontainers.containers.PostgreSQLContainer;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -94,6 +95,7 @@ public class RecipeControllerTests {
     );
 
     static final Logger logger = Logger.getLogger(RecipeControllerTests.class.getName());
+
     @Test
     void shouldFindAll() {
         recipeRepository.saveAll(testRecipes);
@@ -140,6 +142,59 @@ public class RecipeControllerTests {
             assert false;
         };
 
-
     }
+
+    @Test
+    void shouldUpdateRecipe() {
+        recipeRepository.saveAll(testRecipes);
+
+        try {
+            String jsonRecipe = new String(
+                    Files.readAllBytes(
+                            Paths.get("src/test/java/com/katelocate/menugenerator/data/test-put-request.json")
+                    )
+            );
+
+            ObjectMapper mapper = new ObjectMapper();
+            Recipe targetRecipe = mapper.readValue(jsonRecipe, Recipe.class);
+
+            given()
+                    .contentType(ContentType.JSON)
+                    .body(jsonRecipe)
+                    .when()
+                        .put("/" + targetRecipe.id())
+                    .then()
+                        .statusCode(204);
+
+            Recipe updatedRecipe = given()
+                    .contentType(ContentType.JSON)
+                    .get("/" + targetRecipe.id())
+                    .getBody()
+                    .as(Recipe.class);
+
+            assertThat(targetRecipe).isEqualTo(updatedRecipe);
+        } catch (IOException e) {
+            logger.severe("Failed to read test JSON.");
+            assert false;
+        };
+    }
+
+    @Test
+    void shouldDeleteRecipe(){
+        recipeRepository.saveAll(testRecipes);
+        Recipe targetRecipe = testRecipes.get(1);
+
+        given()
+                .when()
+                .delete("/" + targetRecipe.id())
+                .then()
+                .statusCode(204);
+
+        given()
+                .when()
+                .get("/" + targetRecipe.id())
+                .then()
+                .statusCode(404);
+    }
+
 }
