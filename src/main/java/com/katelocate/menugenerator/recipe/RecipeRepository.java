@@ -69,7 +69,7 @@ public class RecipeRepository {
 
     public List<Recipe> findByType(RecipeType recipeType) {
         return jdbcClient.sql("SELECT * FROM Recipe WHERE recipeType = :recipeType")
-                .param("recipeType", recipeType)
+                .param("recipeType", recipeType.name())
                 .query(Recipe.class)
                 .list();
     }
