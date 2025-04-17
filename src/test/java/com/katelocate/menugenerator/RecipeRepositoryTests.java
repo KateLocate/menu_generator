@@ -24,7 +24,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
+import java.util.*;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -164,4 +164,22 @@ public class RecipeRepositoryTests {
 
         assertThat(jdbcTemplate.query("SELECT * FROM Recipe", new RecipeRowMapper())).isEqualTo(testRecipes);
     }
+
+    @Test
+    void shouldFindByType() {
+        RecipeType[] recipeTypes = RecipeType.values();
+        for (RecipeType type: recipeTypes) {
+            List<Recipe> recipesOfType = recipeRepository.findByType(type);
+
+            if (recipesOfType.size() > 1) {
+                Set<RecipeType> typeVarieties = new HashSet<>();
+
+                for (Recipe recipe: recipesOfType) {
+                    typeVarieties.add(recipe.recipeType());
+                }
+                assertThat(typeVarieties).isEqualTo(1);
+            }
+        }
+    }
+
 }
