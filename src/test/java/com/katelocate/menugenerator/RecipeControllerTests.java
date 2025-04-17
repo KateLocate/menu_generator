@@ -4,9 +4,12 @@ import com.katelocate.menugenerator.recipe.Recipe;
 import com.katelocate.menugenerator.recipe.RecipeType;
 import com.katelocate.menugenerator.recipe.RecipeRepository;
 
+import static com.katelocate.menugenerator.recipe.Constants.dayRecipeTypes;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -92,7 +95,8 @@ public class RecipeControllerTests {
             new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"),
             new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito"),
             new Recipe(2, "Snack", RecipeType.SNACK, "Potato chips"),
-            new Recipe(3, "Dessert", RecipeType.DESSERT, "Mochi")
+            new Recipe(3, "Dessert", RecipeType.DESSERT, "Mochi"),
+            new Recipe(4, "Breakfast number two", RecipeType.BREAKFAST, "Peanut butter toast")
     );
 
     static final Logger logger = Logger.getLogger(RecipeControllerTests.class.getName());
@@ -196,6 +200,70 @@ public class RecipeControllerTests {
                     .get("/" + targetRecipe.id())
                 .then()
                     .statusCode(HttpStatus.NOT_FOUND.value());
+    }
+
+
+    List<Recipe> getTestDayMenuFromTestObjects(){
+        List<Recipe> dayRecipes = new ArrayList<>();
+
+        for (RecipeType type: dayRecipeTypes) {
+            for (Recipe recipe: testRecipes){
+                if (recipe.recipeType() == type){
+                    dayRecipes.add(recipe);
+                    break;
+                }
+            }
+        }
+        return dayRecipes;
+    }
+
+    List<Recipe> getTestDayMenuFromAPI(){
+        return given()
+                .contentType(ContentType.JSON)
+                .get("/day")
+                .jsonPath()
+                .getList("", Recipe.class);
+    }
+
+
+    @Test
+    void shouldGetDayMenu(){
+        List<Recipe> targetDayRecipes = getTestDayMenuFromTestObjects();
+        recipeRepository.saveAll(targetDayRecipes);
+
+        List<Recipe> dayRecipes = getTestDayMenuFromAPI();
+        assertThat(dayRecipes).isEqualTo(targetDayRecipes);
+
+    }
+
+    @Test
+    void shouldGetRandomDayMenu(){
+        List<Recipe> suitableRecipes = new ArrayList<>();
+        for (Recipe recipe: testRecipes) {
+            if (dayRecipeTypes.contains(recipe.recipeType())){
+                suitableRecipes.add(recipe);
+            }
+        }
+
+        if (suitableRecipes.size() > dayRecipeTypes.size()) {
+            recipeRepository.saveAll(testRecipes);
+
+            List<Recipe> firstDayRecipes = getTestDayMenuFromAPI();
+
+            while (true) {
+                List<Recipe> secondDayRecipes = getTestDayMenuFromAPI();
+                if (firstDayRecipes != secondDayRecipes){
+                    logger.info(String.valueOf(firstDayRecipes) + secondDayRecipes);
+                    break;
+                }
+            }
+        }
+        else {
+            logger.severe("Not enough recipes for two different day menus, provide more.");
+            assert(false);
+        }
+
+
     }
 
 }
