@@ -4,8 +4,13 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
+
+import static com.katelocate.menugenerator.recipe.Constants.dayRecipeTypes;
+
 
 @RestController
 @RequestMapping("/api/recipes")
@@ -29,6 +34,18 @@ public class RecipeController {
             throw new RecipeNotFoundException();
         }
         return recipe.get();
+    }
+
+    @GetMapping("/day")
+    ArrayList<Recipe> getDayMenu() {
+        Random random = new Random();
+        ArrayList<Recipe> dayMenu = new ArrayList<>(3);
+        for (RecipeType type: dayRecipeTypes) {
+            List<Recipe> choices = recipeRepository.findByType(type);
+            int randomIndex = random.nextInt(choices.size());
+            dayMenu.add(choices.get(randomIndex));
+        }
+        return dayMenu;
     }
 
     @ResponseStatus(HttpStatus.CREATED)
