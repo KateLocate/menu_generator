@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
+import static com.katelocate.menugenerator.recipe.Constants.dayRecipeTypes;
+
+
 @RestController
 @RequestMapping("/api/recipes")
 public class RecipeController {
@@ -35,14 +38,9 @@ public class RecipeController {
 
     @GetMapping("/day")
     ArrayList<Recipe> getDayMenu() {
-        RecipeType[] types = {
-                RecipeType.BREAKFAST,
-                RecipeType.SNACK,
-                RecipeType.DINNER,
-        };
         Random random = new Random();
         ArrayList<Recipe> dayMenu = new ArrayList<>(3);
-        for (RecipeType type : types) {
+        for (RecipeType type: dayRecipeTypes) {
             List<Recipe> choices = recipeRepository.findByType(type);
             int randomIndex = random.nextInt(choices.size());
             dayMenu.add(choices.get(randomIndex));
