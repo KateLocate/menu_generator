@@ -212,7 +212,7 @@ public class RecipeRepositoryTests {
                 for (Recipe recipe: recipesOfType) {
                     typeVarieties.add(recipe.recipeType());
                 }
-                assertThat(typeVarieties).isEqualTo(1);
+                assertThat(typeVarieties.size()).isEqualTo(1);
             }
         }
     }
