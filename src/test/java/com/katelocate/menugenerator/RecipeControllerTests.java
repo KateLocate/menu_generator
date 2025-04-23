@@ -245,25 +245,21 @@ public class RecipeControllerTests {
             }
         }
 
-        if (suitableRecipes.size() > dayRecipeTypes.size()) {
-            recipeRepository.saveAll(testRecipes);
-
-            List<Recipe> firstDayRecipes = getTestDayMenuFromAPI();
-
-            while (true) {
-                List<Recipe> secondDayRecipes = getTestDayMenuFromAPI();
-                if (firstDayRecipes != secondDayRecipes){
-                    logger.info(String.valueOf(firstDayRecipes) + secondDayRecipes);
-                    break;
-                }
-            }
-        }
-        else {
+        if (suitableRecipes.size() <= dayRecipeTypes.size()) {
             logger.severe("Not enough recipes for two different day menus, provide more.");
             assert(false);
         }
+        recipeRepository.saveAll(testRecipes);
 
+        List<Recipe> firstDayRecipes = getTestDayMenuFromAPI();
 
+        while (true) {
+            List<Recipe> secondDayRecipes = getTestDayMenuFromAPI();
+            if (firstDayRecipes != secondDayRecipes){
+                logger.info(String.valueOf(firstDayRecipes) + secondDayRecipes);
+                break;
+            }
+        }
     }
 
 }
