@@ -25,7 +25,6 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
-import java.util.logging.Logger;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -72,8 +71,6 @@ public class RecipeRepositoryTests {
     void setUp() {
         recipeRepository.deleteAll();
     }
-
-    static final Logger logger = Logger.getLogger(RecipeRepositoryTests.class.getName());
 
     public static class RecipeRowMapper implements RowMapper<Recipe> {
 
