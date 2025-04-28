@@ -1,25 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import './../App.css';
+import "./../App.css";
 
 function Navbar() {
   return (
-  <div className='container'>
-    <nav className='navbar'>
-      <ul className='navList'>
-        <li>
-          <NavLink href="/" className='navItem'>Home</NavLink>
+    <nav className='navbar bg-body-tertiary px-3 mb-3'>
+      <h1 className="navbar-brand">Menu Generator</h1>
+      <ul className='nav justify-content-center'>
+        <li className="nav-item">
+          <NavLink to="/" className="nav-link">Home</NavLink>
         </li>
-        <li>
-          <NavLink href="/categories" className='navItem'>Categories</NavLink>
+        <li className="nav-item">
+          <NavLink to="/categories" className="nav-link">Categories</NavLink>
         </li>
-        <li>
-          <NavLink href="/search" className='navItem'>Search</NavLink>
+        <li className="nav-item">
+          <NavLink to="/search" className="nav-link">Search</NavLink>
         </li>
       </ul>
     </nav>
-  </div>
   );
 }
 
