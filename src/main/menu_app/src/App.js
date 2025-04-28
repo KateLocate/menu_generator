@@ -12,15 +12,16 @@ import './App.css';
 const App = () => {
   return (
     <div className="app">
-      <h1>Menu Generator</h1>
-        <Router>
-          <Navbar className='navbar' />
+      <Router>
+        <Navbar />
+        <div className="container-fluid">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/search" element={<Search />} />
           </Routes>
-        </Router>
+        </div>
+      </Router>
     </div>
   );
 }
