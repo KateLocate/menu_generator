@@ -1,30 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 
 function Home() {
-  const [recipes, setGroups] = useState([]);
+  const [dayRecipes, setDayRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
+  const fetchDayRecipes = () => {
+      setLoading(true);
+      fetch('api/recipes/day')
+        .then(response => response.json())
+        .then(data => {
+          setDayRecipes(data);
+          setLoading(false);
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          setLoading(false);
+        });
+    };
 
-    fetch('api/recipes')
-      .then(response => response.json())
-      .then(data => {
-        setGroups(data);
-        setLoading(false);
-      })
-  }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  function Recipe({recipe, visible}) {
-    if (visible) {
-      return <p>{recipe.body}</p>;
-    }
-    return null;
-  }
 
   function RecipeButton({recipe}) {
     const [visible, setVisible] = useState(false);
