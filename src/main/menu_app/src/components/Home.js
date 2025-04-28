@@ -45,12 +45,20 @@ function Home() {
     <div>
       <div className="app">
         <div className='container'>
-          <button className='large'>Generate menu!</button>
-          { recipes.map(recipe =>
-            <div className='recipe' key={recipe.id}>
-              <RecipeButton recipe={recipe} />
-            </div>
-          )};
+          <div className="container-fluid">
+            <button type="button" className="btn btn-outline-primary btn-lg" onClick={fetchDayRecipes}>Generate day menu</button>
+          </div>
+          <div className="container-fluid">
+            {loading && <p>Loading...</p>}
+            { dayRecipes.map(recipe =>
+            <div key={recipe.id}>
+                  <p className="d-inline-flex gap-1" >
+                    <button className="btn btn-primary" type="button" data-bs-toggle=".collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseRecipe">{recipe.title}</button>
+                  </p>
+              </div>
+              )
+            }
+          </div>
         </div>
       </div>
     </div>
