@@ -5,7 +5,7 @@ import "./../App.css";
 
 function Navbar() {
   return (
-    <nav className='navbar bg-body-tertiary px-3 mb-3'>
+    <nav className="navbar sticky-top bg-body-tertiary px-3 mb-3">
       <h1 className="navbar-brand">Menu Generator</h1>
       <ul className='nav justify-content-center'>
         <li className="nav-item">
