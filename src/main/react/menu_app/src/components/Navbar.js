@@ -7,7 +7,7 @@ function Navbar() {
   return (
     <nav className="navbar sticky-top bg-body-tertiary px-3 mb-3">
       <h1 className="navbar-brand">Menu Generator</h1>
-      <ul className='nav justify-content-center'>
+      <ul className="nav justify-content-center">
         <li className="nav-item">
           <NavLink to="/" className="nav-link">Home</NavLink>
         </li>

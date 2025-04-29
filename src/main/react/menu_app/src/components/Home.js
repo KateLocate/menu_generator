@@ -6,20 +6,20 @@ function Home() {
 
   const fetchDayRecipes = () => {
       setLoading(true);
-      fetch('api/recipes/day')
+      fetch("api/recipes/day")
         .then(response => response.json())
         .then(data => {
           setDayRecipes(data);
           setLoading(false);
         })
         .catch(error => {
-          console.error('Error fetching data:', error);
+          console.error("Error fetching data:", error);
           setLoading(false);
         });
     };
 
   return (
-    <div className='container'>
+    <div className="container">
       <div className="container-fluid">
         <button type="button" className="btn btn-outline-primary btn-lg" onClick={fetchDayRecipes}>Generate day menu</button>
       </div>
