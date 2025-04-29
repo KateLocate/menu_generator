@@ -18,49 +18,32 @@ function Home() {
         });
     };
 
-
-  function RecipeButton({recipe}) {
-    const [visible, setVisible] = useState(false);
-
-    function handleRecipeButtonClick() {
-      setVisible(!visible);
-      console.log(visible)
-    }
-
-    return (
-      <div>
-        <button className='recipeDetails' onClick={handleRecipeButtonClick}>
-          {recipe.title}
-        </button>
-        <p>
-          <Recipe visible={visible} recipe={recipe}/>
-        </p>
-      </div>
-    );
-  }
-
-
-
   return (
-    <div>
-      <div className="app">
-        <div className='container'>
-          <div className="container-fluid">
-            <button type="button" className="btn btn-outline-primary btn-lg" onClick={fetchDayRecipes}>Generate day menu</button>
-          </div>
-          <div className="container-fluid">
-            {loading && <p>Loading...</p>}
-            { dayRecipes.map(recipe =>
-            <div key={recipe.id}>
-                  <p className="d-inline-flex gap-1" >
-                    <button className="btn btn-primary" type="button" data-bs-toggle=".collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseRecipe">{recipe.title}</button>
-                  </p>
-              </div>
-              )
-            }
+    <div className='container'>
+      <div className="container-fluid">
+        <button type="button" className="btn btn-outline-primary btn-lg" onClick={fetchDayRecipes}>Generate day menu</button>
+      </div>
+
+      {loading && <p>Loading...</p>}
+      { dayRecipes.map(recipe =>
+      <div className="container mt-3" key={recipe.id}>
+        <p className="d-inline-flex gap-1" >
+          <button className="btn btn-primary"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target={`#collapse-${recipe.id}`}
+                  aria-expanded="false"
+                  aria-controls={`collapse-${recipe.id}`}>
+            {recipe.title}
+          </button>
+        </p>
+        <div className="collapse" id={`collapse-${recipe.id}`}>
+          <div className="card card-body">
+            {recipe.body}
           </div>
         </div>
       </div>
+      ) }
     </div>
   );
 }
