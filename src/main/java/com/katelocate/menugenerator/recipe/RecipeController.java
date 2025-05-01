@@ -48,6 +48,16 @@ public class RecipeController {
         return dayMenu;
     }
 
+    @GetMapping("/week")
+    ArrayList<ArrayList<Recipe>> getWeekMenu() {
+        ArrayList<ArrayList<Recipe>> weekMenu = new ArrayList<>();
+        int weekDays = 7;
+        for (int i = 1; i <= weekDays; ++i) {
+            weekMenu.add(getDayMenu());
+        }
+        return weekMenu;
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("")
     void create(@Valid @RequestBody Recipe recipe) {
