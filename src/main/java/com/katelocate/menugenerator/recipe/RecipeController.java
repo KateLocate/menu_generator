@@ -48,14 +48,13 @@ public class RecipeController {
         return dayMenu;
     }
 
-    @GetMapping("/week")
-    ArrayList<ArrayList<Recipe>> getWeekMenu() {
-        ArrayList<ArrayList<Recipe>> weekMenu = new ArrayList<>();
-        int weekDays = 7;
-        for (int i = 1; i <= weekDays; ++i) {
-            weekMenu.add(getDayMenu());
+    @GetMapping("/period/{days}")
+    ArrayList<ArrayList<Recipe>> getMenuForPeriod(@PathVariable Integer days) {
+        ArrayList<ArrayList<Recipe>> menu = new ArrayList<>();
+        for (int i = 1; i <= days; ++i) {
+            menu.add(getDayMenu());
         }
-        return weekMenu;
+        return menu;
     }
 
     @ResponseStatus(HttpStatus.CREATED)
