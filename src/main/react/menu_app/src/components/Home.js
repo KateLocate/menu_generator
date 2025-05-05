@@ -1,16 +1,16 @@
 import React, {useState} from "react";
 
 function Home() {
-  const [dayRecipes, setDayRecipes] = useState([]);
-  const [weekRecipes, setWeekRecipes] = useState([]);
+  const [period, setPeriod] = useState([]);
+  const [menuRecipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const fetchDayRecipes = () => {
+  function fetchRecipes (days) {
     setLoading(true);
-    fetch("api/recipes/day")
+    fetch(`api/recipes/period/${days}`)
       .then(response => response.json())
       .then(data => {
-        setDayRecipes(data);
+        setRecipes(data);
         setLoading(false);
       })
       .catch(error => {
@@ -19,21 +19,7 @@ function Home() {
       });
   }
 
-  const fetchWeekRecipes = () => {
-    setLoading(true);
-    fetch("api/recipes/week")
-      .then(response => response.json())
-      .then(data => {
-        setWeekRecipes(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      });
-  }
-
-  function RecipeButton ({index="n", recipe}) {
+  function RecipeButton ({index, recipe}) {
     return (
         <button className="btn btn-primary"
               type="button"
@@ -46,68 +32,66 @@ function Home() {
     );
   }
 
-  function DisplayRecipe ({index="n", recipe}) {
+  function DisplayRecipe ({index, recipe}) {
     return (
         <div className="container mt-3" key={`${index+"-"+recipe.id}`}>
           <p className="d-inline-flex gap-1" >
-            <RecipeButton recipe={recipe} index={index} />
+            <RecipeButton index={index} recipe={recipe} />
           </p>
           <div className="collapse" id={`collapse-${index+"-"+recipe.id}`}>
             <div className="card card-body">
               {recipe.body}
-              {console.log(index+" "+recipe.id)}
             </div>
           </div>
         </div>
     )
   }
 
-  function DisplayDayRecipes ({index="n", recipes}) {
-    return (
-        <div key={index}>
-          <li>
-            { recipes.map((recipe) => {
-              return (<DisplayRecipe index={index} recipe={recipe} />)
-              })
-            }
-          </li>
-        </div>
-    )
-  }
-
-  function DisplayMenu() {
+  function DisplayMenu () {
     return (
         <div>
           {loading && <p>Loading...</p>}
-          <ol>
-            { weekRecipes.map((dayRecipes, index) => {
+          <ul>
+            { menuRecipes.map((recipes, index) => {
               return (
-                  <DisplayDayRecipes index={index} recipes={dayRecipes} />
+                    <li key={index}>
+                      <p>Day {index + 1}</p>
+                      { recipes.map((recipe) => {
+                        return (<DisplayRecipe index={index} recipe={recipe} />)
+                        })
+                      }
+                    </li>
               )
             })}
-          </ol>
+          </ul>
         </div>
     )
   }
 
+  function handleSubmit (e) {
+    e.preventDefault();
+    fetchRecipes(period);
+  }
 
   return (
     <div className="container">
-      <div className="row align-items-start">
-        <div className="col">
-          <button type="button" className="btn btn-outline-primary btn-lg" onClick={fetchDayRecipes}>Generate day menu</button>
-          {loading && <p>Loading...</p>}
-          { dayRecipes.map(recipe => {
-              return(
-                  <DisplayRecipe recipe={recipe} />
-              ) }
-          ) }
+      <h1>Let's decide what to eat!</h1>
+      <form className="row row-cols-lg-auto g-3 align-items-center" method="post" onSubmit={handleSubmit}>
+        <div className="col-auto">
+          <label className="col-form-label">Choose period:</label>
         </div>
-
-        <div className="col">
-          <button type="button" className="btn btn-outline-primary btn-lg" onClick={fetchWeekRecipes}>Generate week menu</button>
-          <DisplayMenu />
+        <div className="col-auto">
+         <button className="btn btn-primary" type="submit" onClick={e => setPeriod(1)}>day</button>
         </div>
+        <div className="col-auto">
+         <button className="btn btn-primary" type="submit" onClick={e => setPeriod(7)}>week</button>
+        </div>
+        <div className="col-auto">
+         <button className="btn btn-primary" type="submit" onClick={e => setPeriod(31)}>month</button>
+        </div>
+      </form>
+      <div>
+        <DisplayMenu />
       </div>
     </div>
   );
