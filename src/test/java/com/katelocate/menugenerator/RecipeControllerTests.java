@@ -262,4 +262,19 @@ public class RecipeControllerTests {
         }
     }
 
+    @Test
+    void shouldGetMenuForPeriod() {
+        recipeRepository.saveAll(testRecipes);
+        List<Integer> periods = List.of(1, 7, 31);
+        for (Integer period: periods) {
+            given()
+                    .contentType(ContentType.JSON)
+                    .when()
+                        .get("/period/" + period)
+                    .then()
+                        .statusCode(HttpStatus.OK.value())
+                        .body(".", hasSize(period));
+        }
+    }
+
 }
