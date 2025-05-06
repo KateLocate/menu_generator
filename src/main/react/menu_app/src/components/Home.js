@@ -34,7 +34,7 @@ function Home() {
 
   function DisplayRecipe ({index, recipe}) {
     return (
-        <div className="container mt-3" key={`${index+"-"+recipe.id}`}>
+        <div className="container mt-3">
           <p className="d-inline-flex gap-1" >
             <RecipeButton index={index} recipe={recipe} />
           </p>
@@ -57,7 +57,7 @@ function Home() {
                     <li key={index}>
                       <p>Day {index + 1}</p>
                       { recipes.map((recipe) => {
-                        return (<DisplayRecipe index={index} recipe={recipe} />)
+                        return (<DisplayRecipe key={`${index+"-"+recipe.id}`} index={index} recipe={recipe} />)
                         })
                       }
                     </li>
