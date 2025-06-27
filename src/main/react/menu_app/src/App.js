@@ -3,13 +3,12 @@ import React, {useState} from "react";
 import "./App.css";
 
 const App = () => {
-  const [period, setPeriod] = useState([]);
   const [menuRecipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  function fetchRecipes (days) {
+  function fetchRecipes (days, types) {
     setLoading(true);
-    fetch(`api/recipes/period/${days}`)
+    fetch(`api/recipes/period/${days}/${types.keys}`)
       .then(response => response.json())
       .then(data => {
         setRecipes(data);
@@ -70,9 +69,67 @@ const App = () => {
     )
   }
 
-  function handleSubmit (e) {
-    e.preventDefault();
-    fetchRecipes(period);
+
+  function MenuForm () {
+    const [period, setPeriod] = useState([]);
+    const [types, setTypes] = useState({
+      breakfast: false,
+      snack: false,
+      dinner: false,
+      dessert: false,
+    });
+
+    function handleSubmit (e) {
+      e.preventDefault();
+      fetchRecipes(period, types);
+    }
+
+    return (
+      <div>
+        <form className="row row-cols-lg-auto g-3 align-items-center" method="post" onSubmit={handleSubmit}>
+          <div className="col-auto">
+            <label className="col-form-label">Choose types and period:</label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="checkbox" id="breakfast" value={types.breakfast}
+              onChange={e => { setTypes({...types, breakfast: !types.breakfast}); }} />
+            <label className="form-check-label">
+              breakfast
+            </label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="checkbox" id="snack" value={types.snack}
+              onChange={e => { setTypes({...types, snack: !types.snack}); }} />
+            <label className="form-check-label">
+              snack
+            </label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="checkbox" id="dinner" value={types.dinner}
+              onChange={e => { setTypes({...types, dinner: !types.dinner}); }} />
+            <label className="form-check-label">
+              dinner
+            </label>
+          </div>
+          <div className="form-check">
+            <input className="form-check-input" type="checkbox" id="dessert" value={types.dessert}
+              onChange={e => { setTypes({...types, dessert: !types.dessert}); }} />
+            <label className="form-check-label">
+              dessert
+            </label>
+          </div>
+          <div className="col-auto">
+           <button className="btn btn-primary" type="submit" onClick={e => setPeriod(1)}>day</button>
+          </div>
+          <div className="col-auto">
+           <button className="btn btn-primary" type="submit" onClick={e => setPeriod(7)}>week</button>
+          </div>
+          <div className="col-auto">
+           <button className="btn btn-primary" type="submit" onClick={e => setPeriod(31)}>month</button>
+          </div>
+        </form>
+      </div>
+    )
   }
 
   return (
@@ -82,20 +139,7 @@ const App = () => {
         </div>
         <div className="container-fluid p-3 mb-4">
           <h1 className="h3 mb-4">Let's decide what to eat!</h1>
-          <form className="row row-cols-lg-auto g-3 align-items-center" method="post" onSubmit={handleSubmit}>
-            <div className="col-auto">
-              <label className="col-form-label">Choose period:</label>
-            </div>
-            <div className="col-auto">
-             <button className="btn btn-primary" type="submit" onClick={e => setPeriod(1)}>day</button>
-            </div>
-            <div className="col-auto">
-             <button className="btn btn-primary" type="submit" onClick={e => setPeriod(7)}>week</button>
-            </div>
-            <div className="col-auto">
-             <button className="btn btn-primary" type="submit" onClick={e => setPeriod(31)}>month</button>
-            </div>
-          </form>
+          <MenuForm />
           <div>
             <DisplayMenu />
           </div>
