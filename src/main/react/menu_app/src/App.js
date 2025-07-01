@@ -8,7 +8,8 @@ const App = () => {
 
   function fetchRecipes (days, types) {
     setLoading(true);
-    fetch(`api/recipes/period/${days}/${types.keys}`)
+    const params = new URLSearchParams(types);
+    fetch(`api/recipes/period/${days}/types?${params}`)
       .then(response => response.json())
       .then(data => {
         setRecipes(data);
