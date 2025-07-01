@@ -4,10 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 
 import static com.katelocate.menugenerator.recipe.Constants.dayRecipeTypes;
 
@@ -36,23 +33,25 @@ public class RecipeController {
         return recipe.get();
     }
 
-    @GetMapping("/day")
-    ArrayList<Recipe> getDayMenu() {
+    @GetMapping("/day/{types}")
+    ArrayList<Recipe> getDayMenu(@PathVariable Map<String, String> recipeTypes) {
+        recipeTypes.values().removeIf(s -> s.equals("false"));
+
         Random random = new Random();
         ArrayList<Recipe> dayMenu = new ArrayList<>(3);
-        for (RecipeType type: dayRecipeTypes) {
-            List<Recipe> choices = recipeRepository.findByType(type);
+        for (String type: recipeTypes.keySet()) {
+            List<Recipe> choices = recipeRepository.findByType(RecipeType.valueOf(type.toUpperCase()));
             int randomIndex = random.nextInt(choices.size());
             dayMenu.add(choices.get(randomIndex));
         }
         return dayMenu;
     }
 
-    @GetMapping("/period/{days}")
-    ArrayList<ArrayList<Recipe>> getMenuForPeriod(@PathVariable Integer days) {
+    @GetMapping("/period/{days}/types")
+    ArrayList<ArrayList<Recipe>> getMenuForPeriod(@PathVariable Integer days, @RequestParam Map<String, String> types) {
         ArrayList<ArrayList<Recipe>> menu = new ArrayList<>();
         for (int i = 1; i <= days; ++i) {
-            menu.add(getDayMenu());
+            menu.add(getDayMenu(types));
         }
         return menu;
     }
