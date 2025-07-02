@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-import static com.katelocate.menugenerator.recipe.Constants.dayRecipeTypes;
-
-
 @RestController
 @RequestMapping("/api/recipes")
 public class RecipeController {
@@ -31,20 +28,6 @@ public class RecipeController {
             throw new RecipeNotFoundException();
         }
         return recipe.get();
-    }
-
-    @GetMapping("/day/{types}")
-    ArrayList<Recipe> getDayMenu(@PathVariable Map<String, String> recipeTypes) {
-        recipeTypes.values().removeIf(s -> s.equals("false"));
-
-        Random random = new Random();
-        ArrayList<Recipe> dayMenu = new ArrayList<>(3);
-        for (String type: recipeTypes.keySet()) {
-            List<Recipe> choices = recipeRepository.findByType(RecipeType.valueOf(type.toUpperCase()));
-            int randomIndex = random.nextInt(choices.size());
-            dayMenu.add(choices.get(randomIndex));
-        }
-        return dayMenu;
     }
 
     @GetMapping("/menu/{days}/types")
