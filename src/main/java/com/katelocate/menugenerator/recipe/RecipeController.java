@@ -47,11 +47,27 @@ public class RecipeController {
         return dayMenu;
     }
 
-    @GetMapping("/period/{days}/types")
-    ArrayList<ArrayList<Recipe>> getMenuForPeriod(@PathVariable Integer days, @RequestParam Map<String, String> types) {
-        ArrayList<ArrayList<Recipe>> menu = new ArrayList<>();
-        for (int i = 1; i <= days; ++i) {
-            menu.add(getDayMenu(types));
+    @GetMapping("/menu/{days}/types")
+    ArrayList<ArrayList<Recipe>> getMenuForPeriod(
+            @PathVariable Integer days, @RequestParam Map<String, String> types
+    ) {
+        HashSet<String> typesVarieties = new HashSet<>(types.values());
+        if (typesVarieties.contains("true")) {
+            types.values().removeIf(s -> s.equals("false"));
+        }
+
+        ArrayList<ArrayList<Recipe>> menu = new ArrayList<>(days);
+        for (int i = 0; i < days; ++i) {
+            menu.add(new ArrayList<>());
+        }
+
+        Random random = new Random();
+        for (String type: types.keySet()) {
+            List<Recipe> choices = recipeRepository.findByType(RecipeType.valueOf(type.toUpperCase()));
+            for (int i = 0; i < days; ++i) {
+                int randomIndex = random.nextInt(choices.size());
+                menu.get(i).add(choices.get(randomIndex));
+            }
         }
         return menu;
     }
