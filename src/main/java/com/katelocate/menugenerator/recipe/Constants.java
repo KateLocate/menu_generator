@@ -11,5 +11,6 @@ public final class Constants {
             RecipeType.BREAKFAST,
             RecipeType.SNACK,
             RecipeType.DINNER,
+            RecipeType.DESSERT,
     });
 }
