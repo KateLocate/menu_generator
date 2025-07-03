@@ -217,27 +217,28 @@ public class RecipeControllerTests {
         return dayRecipes;
     }
 
-    List<Recipe> getTestDayMenuFromAPI(){
+    List<Recipe> getTestDayMenuFromAPI() {
         return given()
                 .contentType(ContentType.JSON)
-                .get("/day")
+                .get("/menu/" + 1 + "/types")
                 .jsonPath()
-                .getList("", Recipe.class);
+                // "[0]" - gets the first day content from response JSON
+                // "Recipe.class" - converts each recipe into Java object
+                .getList("[0]", Recipe.class);
     }
 
 
     @Test
-    void shouldGetDayMenu(){
+    void shouldGetDayMenuRecipes(){
         List<Recipe> targetDayRecipes = getTestDayMenuFromTestObjects();
         recipeRepository.saveAll(targetDayRecipes);
 
         List<Recipe> dayRecipes = getTestDayMenuFromAPI();
         assertThat(dayRecipes).isEqualTo(targetDayRecipes);
-
     }
 
     @Test
-    void shouldGetRandomDayMenu(){
+    void shouldGetRandomMenus(){
         List<Recipe> suitableRecipes = new ArrayList<>();
         for (Recipe recipe: testRecipes) {
             if (dayRecipeTypes.contains(recipe.recipeType())){
@@ -265,16 +266,25 @@ public class RecipeControllerTests {
     @Test
     void shouldGetMenuForPeriod() {
         recipeRepository.saveAll(testRecipes);
+
+        // Get right number of Recipe lists
         List<Integer> periods = List.of(1, 7, 31);
         for (Integer period: periods) {
             given()
                     .contentType(ContentType.JSON)
                     .when()
-                        .get("/period/" + period)
+                        .get("/menu/" + period + "/types")
                     .then()
                         .statusCode(HttpStatus.OK.value())
                         .body(".", hasSize(period));
         }
+        // Catch the UnexpectedTypeException
+        given()
+            .contentType(ContentType.JSON)
+            .when()
+            .get("/menu/" + 1 + "/types?bsdnjv=1wsas")
+            .then()
+            .statusCode(HttpStatus.NOT_FOUND.value());
     }
 
 }
