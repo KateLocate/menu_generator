@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
+import static com.katelocate.menugenerator.recipe.Constants.dayRecipeTypes;
+
 @RestController
 @RequestMapping("/api/recipes")
 public class RecipeController {
@@ -31,22 +33,35 @@ public class RecipeController {
     }
 
     @GetMapping("/menu/{days}/types")
-    ArrayList<ArrayList<Recipe>> getMenuForPeriod(
+    ArrayList<ArrayList<Recipe>> getMenuForPeriod (
             @PathVariable Integer days, @RequestParam Map<String, String> types
     ) {
-        HashSet<String> typesVarieties = new HashSet<>(types.values());
-        if (typesVarieties.contains("true")) {
-            types.values().removeIf(s -> s.equals("false"));
+        List<RecipeType> recipeTypes = new ArrayList<>();
+        try {
+            for (String type: types.keySet()) {
+                if (dayRecipeTypes.contains(RecipeType.valueOf(type.toUpperCase())) & types.get(type).equals("true")) {
+                    recipeTypes.add(RecipeType.valueOf(type.toUpperCase()));
+                }
+            }
+        } catch (java.lang.IllegalArgumentException e) {
+            throw new UnexpectedTypeException();
         }
 
+        // If no valid types provided, dayRecipeTypes serves as a source
+        if (recipeTypes.isEmpty()) {
+            recipeTypes = dayRecipeTypes;
+        }
+
+        // Initialize each menu "row"
         ArrayList<ArrayList<Recipe>> menu = new ArrayList<>(days);
         for (int i = 0; i < days; ++i) {
             menu.add(new ArrayList<>());
         }
 
         Random random = new Random();
-        for (String type: types.keySet()) {
-            List<Recipe> choices = recipeRepository.findByType(RecipeType.valueOf(type.toUpperCase()));
+        // Fill menu via "columns"
+        for (RecipeType type : recipeTypes) {
+            List<Recipe> choices = recipeRepository.findByType(type);
             for (int i = 0; i < days; ++i) {
                 int randomIndex = random.nextInt(choices.size());
                 menu.get(i).add(choices.get(randomIndex));
