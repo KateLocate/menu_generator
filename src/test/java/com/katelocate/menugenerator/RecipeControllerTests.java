@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -257,7 +259,6 @@ public class RecipeControllerTests {
         while (true) {
             List<Recipe> secondDayRecipes = getTestDayMenuFromAPI();
             if (firstDayRecipes != secondDayRecipes){
-                logger.info(String.valueOf(firstDayRecipes) + secondDayRecipes);
                 break;
             }
         }
@@ -290,6 +291,34 @@ public class RecipeControllerTests {
             .get("/menu/" + 1 + "/types?bsdnjv=1wsas")
             .then()
             .statusCode(HttpStatus.NOT_FOUND.value());
+    }
+
+    @Test
+    void shouldFilterMenuByTypes() {
+        recipeRepository.saveAll(testRecipes);
+        String firstType = dayRecipeTypes.getFirst().name();
+        String lastType = dayRecipeTypes.getLast().name();
+
+        HashSet<String> requestTypes = new HashSet<>(List.of(firstType, lastType));
+
+        String types = "?" + firstType.toLowerCase() + "=true" + "&"
+                           + lastType.toLowerCase() + "=true";
+        logger.info(types);
+
+        List<List> dayRecipes = given()
+            .contentType(ContentType.JSON)
+            .get("/menu/" + 6 + "/types" + types)
+            .jsonPath()
+            .getList("", List.class);
+
+        HashSet<String> responseTypes = new HashSet<>();
+
+        for (List<LinkedHashMap> day: dayRecipes) {
+            for (LinkedHashMap recipe: day) {
+                responseTypes.add(recipe.get("recipeType").toString());
+            }
+        }
+        assertThat(requestTypes.containsAll(responseTypes)).isEqualTo(true);
     }
 
 }
