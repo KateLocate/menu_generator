@@ -278,7 +278,12 @@ public class RecipeControllerTests {
                         .statusCode(HttpStatus.OK.value())
                         .body(".", hasSize(period));
         }
-        // Catch the UnexpectedTypeException
+    }
+
+    @Test
+    void shouldCatchUnexpectedTypeException() {
+        recipeRepository.saveAll(testRecipes);
+
         given()
             .contentType(ContentType.JSON)
             .when()
