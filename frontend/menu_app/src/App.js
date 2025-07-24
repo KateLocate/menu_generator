@@ -1,5 +1,22 @@
 import React, {useState} from "react";
 
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyCvcD61ifXbHSapKnYHM7twAWt2AxdXsGc",
+  authDomain: "menu-generator-100.firebaseapp.com",
+  projectId: "menu-generator-100",
+  storageBucket: "menu-generator-100.firebasestorage.app",
+  messagingSenderId: "228532872508",
+  appId: "1:228532872508:web:a2fe80f57ee2665cffaa39"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
 import "./App.css";
 
 const App = () => {
