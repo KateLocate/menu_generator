@@ -4,6 +4,10 @@ run:
 	@echo "~~~Running Spring Boot App~~~"
 	cd backend && mvn spring-boot:run
 
+runJar:
+	@echo "~~~Running Java Package~~~"
+	cd backend && java -jar target/menu-generator-0.0.1-SNAPSHOT.jar
+
 test:
 	@echo "~~~Running Spring Boot App Tests~~~"
 	cd backend && docker compose up --build \
