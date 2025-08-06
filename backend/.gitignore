@@ -14,12 +14,6 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -30,6 +24,5 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### React source code
-#*/node_modules
-/src/main/menu_app/node_modules/
+### React build
+/src/main/resources/static/
