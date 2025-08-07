@@ -23,4 +23,4 @@ react:
 	cd frontend/menu_app && \
  	npm install && npm run build && \
  	cd ../../ &&  \
- 	mkdir backend/src/main/resources/static/build && cp -r frontend/menu_app/build backend/src/main/resources/static/
+ 	cp -a frontend/menu_app/build/. backend/src/main/resources/static/
