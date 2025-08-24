@@ -6,3 +6,4 @@ RUN make react
 RUN make jar
 ENTRYPOINT ["make","runJar"]
 EXPOSE 8080
+EXPOSE ${POSTGRES_PORT}
