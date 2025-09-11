@@ -34,16 +34,16 @@ public class RecipeRepository {
     }
 
     public void create(Recipe recipe) {
-        var updated = jdbcClient.sql("INSERT INTO Recipe (id, title, recipeType, body) VALUES (?,?,?,?)")
-                .params(List.of(recipe.id(), recipe.title(), recipe.recipeType().name(), recipe.body().toString()))
+        var updated = jdbcClient.sql("INSERT INTO Recipe (id, title, recipeType, ingredients, instructions) VALUES (?,?,?,?)")
+                .params(List.of(recipe.id(), recipe.title(), recipe.recipeType().name(), recipe.ingredients(), recipe.instructions()))
                 .update();
 
         Assert.state(updated == 1, "Failed to create recipe " + recipe.title());
     }
 
     public void update(Recipe recipe, Integer id) {
-        var updated = jdbcClient.sql("UPDATE Recipe SET title = ?, recipeType = ?, body = ? WHERE id = ?")
-                .params(List.of(recipe.title(), recipe.recipeType().name(), recipe.body(), id))
+        var updated = jdbcClient.sql("UPDATE Recipe SET title = ?, recipeType = ?, ingredients = ?, instructions = ? WHERE id = ?")
+                .params(List.of(recipe.title(), recipe.recipeType().name(), recipe.ingredients(), recipe.instructions(), id))
                 .update();
 
         Assert.state(updated == 1, "Failed to update recipe " + recipe.title());
