@@ -94,11 +94,11 @@ public class RecipeControllerTests {
     }
 
     List<Recipe> testRecipes = List.of(
-            new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "Scramble eggs"),
-            new Recipe(1, "Dinner", RecipeType.DINNER, "Burrito"),
-            new Recipe(2, "Snack", RecipeType.SNACK, "Potato chips"),
-            new Recipe(3, "Dessert", RecipeType.DESSERT, "Mochi"),
-            new Recipe(4, "Breakfast number two", RecipeType.BREAKFAST, "Peanut butter toast")
+            new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
+            new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
+            new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
+            new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
+            new Recipe(4, "Breakfast number two", RecipeType.BREAKFAST, "[\"1 slice of bread\", \"peanut butter\", \"strawberry jam\"]", "[\"Peanut butter toast\"]")
     );
 
     static final Logger logger = Logger.getLogger(RecipeControllerTests.class.getName());
