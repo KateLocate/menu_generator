@@ -103,7 +103,7 @@ public class RecipeRepositoryTests {
                 new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
                 new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
                 new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
         );
         recipeRepository.saveAll(testRecipes);
 
@@ -137,7 +137,7 @@ public class RecipeRepositoryTests {
                 new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
                 new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
                 new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
                 );
         recipeRepository.saveAll(testRecipes);
         Integer targetId = 2;
@@ -155,7 +155,7 @@ public class RecipeRepositoryTests {
                 new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
                 new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
                 new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
                 );
         recipeRepository.saveAll(testRecipes);
         recipeRepository.deleteAll();
@@ -169,7 +169,7 @@ public class RecipeRepositoryTests {
                 new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
                 new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
                 new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
                 );
         recipeRepository.saveAll(testRecipes);
 
@@ -182,7 +182,7 @@ public class RecipeRepositoryTests {
                 new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
                 new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
                 new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
                 );
         recipeRepository.saveAll(testRecipes);
 
@@ -200,7 +200,7 @@ public class RecipeRepositoryTests {
                 new Recipe(5, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
                 new Recipe(6, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
                 new Recipe(7, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
-                new Recipe(8, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
+                new Recipe(8, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
                 );
         recipeRepository.saveAll(testRecipes);
 
