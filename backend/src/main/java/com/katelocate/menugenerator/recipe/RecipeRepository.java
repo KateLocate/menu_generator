@@ -27,14 +27,14 @@ public class RecipeRepository {
     }
 
     public Optional<Recipe> findById(Integer id) {
-        return jdbcClient.sql("SELECT id, title, recipeType, body FROM Recipe WHERE id = :id")
+        return jdbcClient.sql("SELECT id, title, recipeType, ingredients, instructions FROM Recipe WHERE id = :id")
                 .param("id", id)
                 .query(Recipe.class)
                 .optional();
     }
 
     public void create(Recipe recipe) {
-        var updated = jdbcClient.sql("INSERT INTO Recipe (id, title, recipeType, ingredients, instructions) VALUES (?,?,?,?)")
+        var updated = jdbcClient.sql("INSERT INTO Recipe (id, title, recipeType, ingredients, instructions) VALUES (?,?,?,?,?)")
                 .params(List.of(recipe.id(), recipe.title(), recipe.recipeType().name(), recipe.ingredients(), recipe.instructions()))
                 .update();
 
