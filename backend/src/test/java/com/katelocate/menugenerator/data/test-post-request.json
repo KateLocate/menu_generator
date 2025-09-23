@@ -2,5 +2,6 @@
     "id": 0,
     "title": "Boiled eggs",
     "recipeType": "BREAKFAST",
-    "body": "Put egg in a pot with cold water and some salt. Let it boil for 8 min, cool under the cold water."
+    "ingredients": "[\"egg\", \"salt\"]",
+    "instructions": "[\"Put egg in a pot with cold water and some salt.\", \"Let it boil for 8 min, cool under the cold water.\"]"
 }

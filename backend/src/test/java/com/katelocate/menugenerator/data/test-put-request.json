@@ -2,5 +2,6 @@
   "id": 0,
   "title": "Just whatever",
   "recipeType": "BREAKFAST",
-  "body": "Make yourself some nice cup of coffee."
+  "ingredients": "[\"coffee\", \"milk\", \"sugar\"]",
+  "instructions": "[\"Make yourself some nice cup of coffee.\"]"
 }
