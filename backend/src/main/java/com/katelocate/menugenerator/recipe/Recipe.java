@@ -9,6 +9,6 @@ public record Recipe(
         @NotEmpty
         String title,
         RecipeType recipeType,
-        List<String> ingredients,
-        List<String> instructions
+        String ingredients,
+        String instructions
 ){};
