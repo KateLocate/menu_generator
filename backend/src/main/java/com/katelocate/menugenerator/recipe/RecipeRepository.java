@@ -27,26 +27,26 @@ public class RecipeRepository {
     }
 
     public Optional<Recipe> findById(Integer id) {
-        return jdbcClient.sql("SELECT id, title, recipeType, ingredients, instructions FROM Recipe WHERE id = :id")
+        return jdbcClient.sql("SELECT id, title, recipe_type, ingredients, instructions FROM Recipe WHERE id = :id")
                 .param("id", id)
                 .query(Recipe.class)
                 .optional();
     }
 
     public void create(Recipe recipe) {
-        var updated = jdbcClient.sql("INSERT INTO Recipe (id, title, recipeType, ingredients, instructions) VALUES (?,?,?,?,?)")
-                .params(List.of(recipe.id(), recipe.title(), recipe.recipeType().name(), recipe.ingredients(), recipe.instructions()))
+        var updated = jdbcClient.sql("INSERT INTO Recipe (id, title, recipe_type, ingredients, instructions) VALUES (?,?,?,?,?)")
+                .params(List.of(recipe.id, recipe.title, recipe.recipeType.name(), recipe.ingredients, recipe.instructions))
                 .update();
 
-        Assert.state(updated == 1, "Failed to create recipe " + recipe.title());
+        Assert.state(updated == 1, "Failed to create recipe " + recipe.title);
     }
 
     public void update(Recipe recipe, Integer id) {
-        var updated = jdbcClient.sql("UPDATE Recipe SET title = ?, recipeType = ?, ingredients = ?, instructions = ? WHERE id = ?")
-                .params(List.of(recipe.title(), recipe.recipeType().name(), recipe.ingredients(), recipe.instructions(), id))
+        var updated = jdbcClient.sql("UPDATE Recipe SET title = ?, recipe_type = ?, ingredients = ?, instructions = ? WHERE id = ?")
+                .params(List.of(recipe.title, recipe.recipeType.name(), recipe.ingredients, recipe.instructions, id))
                 .update();
 
-        Assert.state(updated == 1, "Failed to update recipe " + recipe.title());
+        Assert.state(updated == 1, "Failed to update recipe " + recipe.title);
     }
 
     public void delete(Integer id) {
@@ -68,7 +68,7 @@ public class RecipeRepository {
     }
 
     public List<Recipe> findByType(RecipeType recipeType) {
-        return jdbcClient.sql("SELECT * FROM Recipe WHERE recipeType = :recipeType")
+        return jdbcClient.sql("SELECT * FROM Recipe WHERE recipe_type = :recipeType")
                 .param("recipeType", recipeType.name())
                 .query(Recipe.class)
                 .list();
