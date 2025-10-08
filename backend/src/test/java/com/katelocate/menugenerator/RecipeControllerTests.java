@@ -94,11 +94,11 @@ public class RecipeControllerTests {
     }
 
     List<Recipe> testRecipes = List.of(
-            new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
-            new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
-            new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-            new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
-            new Recipe(4, "Breakfast number two", RecipeType.BREAKFAST, "[\"1 slice of bread\", \"peanut butter\", \"strawberry jam\"]", "[\"Peanut butter toast\"]")
+            new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs")),
+            new Recipe(1, "Dinner", RecipeType.DINNER, List.of("1 tortilla", "tomatoes", "ground beef", "rice", "corn"), List.of("Burrito")),
+            new Recipe(2, "Snack", RecipeType.SNACK, List.of("3 potatoes", "salt", "peppa", "1 tbsp of cooking oil"), List.of("Potato chips")),
+            new Recipe(3, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi")),
+            new Recipe(4, "Breakfast number two", RecipeType.BREAKFAST, List.of("1 slice of bread", "peanut butter", "strawberry jam"), List.of("Peanut butter toast"))
     );
 
     static final Logger logger = Logger.getLogger(RecipeControllerTests.class.getName());
@@ -122,7 +122,7 @@ public class RecipeControllerTests {
         Recipe targetRecipe = testRecipes.get(1);
         Recipe recipe = given()
                 .contentType(ContentType.JSON)
-                .get("/" + targetRecipe.id())
+                .get("/" + targetRecipe.id)
                 .getBody()
                 .as(Recipe.class);
 
@@ -169,13 +169,13 @@ public class RecipeControllerTests {
                     .contentType(ContentType.JSON)
                     .body(jsonRecipe)
                     .when()
-                        .put("/" + targetRecipe.id())
+                        .put("/" + targetRecipe.id)
                     .then()
                         .statusCode(HttpStatus.NO_CONTENT.value());
 
             Recipe updatedRecipe = given()
                     .contentType(ContentType.JSON)
-                    .get("/" + targetRecipe.id())
+                    .get("/" + targetRecipe.id)
                     .getBody()
                     .as(Recipe.class);
 
@@ -193,13 +193,13 @@ public class RecipeControllerTests {
 
         given()
                 .when()
-                    .delete("/" + targetRecipe.id())
+                    .delete("/" + targetRecipe.id)
                 .then()
                     .statusCode(HttpStatus.NO_CONTENT.value());
 
         given()
                 .when()
-                    .get("/" + targetRecipe.id())
+                    .get("/" + targetRecipe.id)
                 .then()
                     .statusCode(HttpStatus.NOT_FOUND.value());
     }
@@ -210,7 +210,7 @@ public class RecipeControllerTests {
 
         for (RecipeType type: dayRecipeTypes) {
             for (Recipe recipe: testRecipes){
-                if (recipe.recipeType() == type){
+                if (recipe.recipeType == type){
                     dayRecipes.add(recipe);
                     break;
                 }
@@ -243,7 +243,7 @@ public class RecipeControllerTests {
     void shouldGetRandomMenus(){
         List<Recipe> suitableRecipes = new ArrayList<>();
         for (Recipe recipe: testRecipes) {
-            if (dayRecipeTypes.contains(recipe.recipeType())){
+            if (dayRecipeTypes.contains(recipe.recipeType)){
                 suitableRecipes.add(recipe);
             }
         }
@@ -315,7 +315,7 @@ public class RecipeControllerTests {
 
         for (List<LinkedHashMap> day: dayRecipes) {
             for (LinkedHashMap recipe: day) {
-                responseTypes.add(recipe.get("recipeType").toString());
+                responseTypes.add(recipe.get("recipe_type").toString());
             }
         }
         assertThat(requestTypes.containsAll(responseTypes)).isEqualTo(true);

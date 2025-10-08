@@ -24,6 +24,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Array;
 import java.util.*;
 
 
@@ -76,23 +77,41 @@ public class RecipeRepositoryTests {
 
         @Override
         public Recipe mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+            Array arrayIngredients = resultSet.getArray("ingredients");
+            List<String> ingredients;
+            Array arrayInstructions = resultSet.getArray("instructions");
+            List<String> instructions;
+
+            if (arrayIngredients != null) {
+                String[] arrIng = (String[]) arrayIngredients.getArray();
+                ingredients = Arrays.asList(arrIng);
+            } else {
+                ingredients = new ArrayList<String>();
+            }
+
+            if (arrayInstructions != null) {
+                String[] arrIns = (String[]) arrayInstructions.getArray();
+                instructions = Arrays.asList(arrIns);
+            } else {
+                instructions = new ArrayList<String>();
+            }
 
             return new Recipe(
                     resultSet.getInt("id"),
                     resultSet.getString("title"),
                     RecipeType.valueOf(resultSet.getString("recipeType")),
-                    resultSet.getString("ingredients"),
-                    resultSet.getString("instructions")
+                    ingredients,
+                    instructions
             );
         }
     }
 
     @Test
     void shouldCreateRecipe() {
-        Recipe recipe = new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]");
+        Recipe recipe = new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs"));
 
         recipeRepository.create(recipe);
-        String sql = String.format("SELECT * FROM Recipe WHERE id = %d", recipe.id());
+        String sql = String.format("SELECT * FROM Recipe WHERE id = %d", recipe.id);
 
         assertThat(jdbcTemplate.queryForObject(sql, new RecipeRowMapper())).isEqualTo(recipe);
     }
@@ -100,11 +119,11 @@ public class RecipeRepositoryTests {
     @Test
     void shouldGetAllRecipes() {
         List<Recipe> testRecipes = List.of(
-                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
-                new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
-                new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
-        );
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs")),
+                new Recipe(1, "Dinner", RecipeType.DINNER, List.of("1 tortilla", "tomatoes", "ground beef", "rice", "corn"), List.of("Burrito")),
+                new Recipe(2, "Snack", RecipeType.SNACK, List.of("3 potatoes", "salt", "peppa", "1 tbsp of cooking oil"), List.of("Potato chips")),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi"))
+                );
         recipeRepository.saveAll(testRecipes);
 
         assertThat(jdbcTemplate.query("SELECT * FROM Recipe", new RecipeRowMapper())).isEqualTo(testRecipes);
@@ -112,20 +131,20 @@ public class RecipeRepositoryTests {
 
     @Test
     void shouldFindRecipeById() {
-        Recipe recipe =  new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]");
+        Recipe recipe =  new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs"));
         recipeRepository.create(recipe);
-        String sql = String.format("SELECT * FROM Recipe WHERE id = %d", recipe.id());
+        String sql = String.format("SELECT * FROM Recipe WHERE id = %d", recipe.id);
 
         assertThat(jdbcTemplate.queryForObject(sql, new RecipeRowMapper())).isEqualTo(recipe);
     }
 
     @Test
     void shouldUpdateRecipe() {
-        Recipe recipe =  new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]");
+        Recipe recipe =  new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs"));
         recipeRepository.create(recipe);
-        Recipe updatedRecipe = new Recipe(recipe.id(), "Scramble Eggs", recipe.recipeType(), recipe.ingredients(), recipe.instructions());
-        recipeRepository.update(updatedRecipe, recipe.id());
-        String sql = String.format("SELECT * FROM Recipe WHERE id = %d", recipe.id());
+        Recipe updatedRecipe = new Recipe(recipe.id, "Scramble Eggs", recipe.recipeType, recipe.ingredients, recipe.instructions);
+        recipeRepository.update(updatedRecipe, recipe.id);
+        String sql = String.format("SELECT * FROM Recipe WHERE id = %d", recipe.id);
 
         assertThat(jdbcTemplate.queryForObject(sql, new RecipeRowMapper())).isEqualTo(updatedRecipe);
 
@@ -134,10 +153,10 @@ public class RecipeRepositoryTests {
     @Test
     void shouldDeleteRecipe() {
         List<Recipe> testRecipes = List.of(
-                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
-                new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
-                new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs")),
+                new Recipe(1, "Dinner", RecipeType.DINNER, List.of("1 tortilla", "tomatoes", "ground beef", "rice", "corn"), List.of("Burrito")),
+                new Recipe(2, "Snack", RecipeType.SNACK, List.of("3 potatoes", "salt", "peppa", "1 tbsp of cooking oil"), List.of("Potato chips")),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi"))
                 );
         recipeRepository.saveAll(testRecipes);
         Integer targetId = 2;
@@ -152,10 +171,10 @@ public class RecipeRepositoryTests {
     @Test
     void shouldDeleteAllRecipes() {
         List<Recipe> testRecipes = List.of(
-                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
-                new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
-                new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs")),
+                new Recipe(1, "Dinner", RecipeType.DINNER, List.of("1 tortilla", "tomatoes", "ground beef", "rice", "corn"), List.of("Burrito")),
+                new Recipe(2, "Snack", RecipeType.SNACK, List.of("3 potatoes", "salt", "peppa", "1 tbsp of cooking oil"), List.of("Potato chips")),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi"))
                 );
         recipeRepository.saveAll(testRecipes);
         recipeRepository.deleteAll();
@@ -166,10 +185,10 @@ public class RecipeRepositoryTests {
     @Test
     void shouldCountAllRecipes() {
         List<Recipe> testRecipes = List.of(
-                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
-                new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
-                new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs")),
+                new Recipe(1, "Dinner", RecipeType.DINNER, List.of("1 tortilla", "tomatoes", "ground beef", "rice", "corn"), List.of("Burrito")),
+                new Recipe(2, "Snack", RecipeType.SNACK, List.of("3 potatoes", "salt", "peppa", "1 tbsp of cooking oil"), List.of("Potato chips")),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi"))
                 );
         recipeRepository.saveAll(testRecipes);
 
@@ -179,10 +198,10 @@ public class RecipeRepositoryTests {
     @Test
     void shouldSaveAll() {
         List<Recipe> testRecipes = List.of(
-                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
-                new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
-                new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs")),
+                new Recipe(1, "Dinner", RecipeType.DINNER, List.of("1 tortilla", "tomatoes", "ground beef", "rice", "corn"), List.of("Burrito")),
+                new Recipe(2, "Snack", RecipeType.SNACK, List.of("3 potatoes", "salt", "peppa", "1 tbsp of cooking oil"), List.of("Potato chips")),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi"))
                 );
         recipeRepository.saveAll(testRecipes);
 
@@ -192,15 +211,15 @@ public class RecipeRepositoryTests {
     @Test
     void shouldFindByType() {
         List<Recipe> testRecipes = List.of(
-                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, "[\"2 eggs\", \"salt\", \"peppa\"]", "[\"Scramble eggs\"]"),
-                new Recipe(1, "Dinner", RecipeType.DINNER, "[\"1 tortilla\", \"tomatoes\", \"ground beef\", \"rice\", \"corn\"]", "[\"Burrito\"]"),
-                new Recipe(2, "Snack", RecipeType.SNACK, "[\"3 potatoes\", \"salt\", \"peppa\", \"1 tbsp of cooking oil\"]", "[\"Potato chips\"]"),
-                new Recipe(3, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
-                new Recipe(4, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
-                new Recipe(5, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
-                new Recipe(6, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
-                new Recipe(7, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]"),
-                new Recipe(8, "Dessert", RecipeType.DESSERT, "[\"glutinous rice flour\", \"sugar\", \"water\"]", "[\"Mochi\"]")
+                new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs")),
+                new Recipe(1, "Dinner", RecipeType.DINNER, List.of("1 tortilla", "tomatoes", "ground beef", "rice", "corn"), List.of("Burrito")),
+                new Recipe(2, "Snack", RecipeType.SNACK, List.of("3 potatoes", "salt", "peppa", "1 tbsp of cooking oil"), List.of("Potato chips")),
+                new Recipe(3, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi")),
+                new Recipe(4, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi")),
+                new Recipe(5, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi")),
+                new Recipe(6, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi")),
+                new Recipe(7, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi")),
+                new Recipe(8, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi"))
                 );
         recipeRepository.saveAll(testRecipes);
 
@@ -212,7 +231,7 @@ public class RecipeRepositoryTests {
                 Set<RecipeType> typeVarieties = new HashSet<>();
 
                 for (Recipe recipe: recipesOfType) {
-                    typeVarieties.add(recipe.recipeType());
+                    typeVarieties.add(recipe.recipeType);
                 }
                 assertThat(typeVarieties.size()).isEqualTo(1);
             }
