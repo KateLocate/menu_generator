@@ -1,7 +1,5 @@
 package com.katelocate.menugenerator.recipe;
 
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
@@ -30,14 +28,14 @@ public class Recipe {
     public String title;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "recipe_type")
+    @Column(columnDefinition = "recipe_type")
     public RecipeType recipeType;
 
     @JdbcTypeCode(SqlTypes.ARRAY)
     @Column(columnDefinition = "text[]")
-    public List<String> instructions;
+    public String[] instructions;
 
     @JdbcTypeCode(SqlTypes.ARRAY)
     @Column(columnDefinition = "text[]")
-    public List<String> ingredients;
+    public String[] ingredients;
 };
