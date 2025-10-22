@@ -1,7 +1,7 @@
 {
-  "id": 0,
-  "title": "Just whatever",
-  "recipeType": "BREAKFAST",
-  "ingredients": "[\"coffee\", \"milk\", \"sugar\"]",
-  "instructions": "[\"Make yourself some nice cup of coffee.\"]"
+    "id": 0,
+    "title": "Just whatever",
+    "recipeType": "BREAKFAST",
+    "ingredients": ["coffee", "milk", "sugar"],
+    "instructions": ["Make yourself some nice cup of coffee."]
 }
