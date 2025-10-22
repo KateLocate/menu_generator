@@ -1,9 +1,7 @@
 package com.katelocate.menugenerator.recipe;
 
-import jakarta.persistence.Column;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 import org.springframework.jdbc.core.RowMapper;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
