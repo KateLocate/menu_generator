@@ -1,6 +1,7 @@
 package com.katelocate.menugenerator.recipe;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.AllArgsConstructor;
 
@@ -18,6 +19,7 @@ import org.hibernate.type.SqlTypes;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "recipe")
 public class Recipe {
