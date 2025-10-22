@@ -15,6 +15,7 @@ public class RecipeRepository {
 
     private static final Logger log = LoggerFactory.getLogger(RecipeRepository.class);
     private final JdbcClient jdbcClient;
+    private final RecipeRowMapper recipeRowMapper = new RecipeRowMapper();
 
     public RecipeRepository(JdbcClient jdbcClient) {
         this.jdbcClient = jdbcClient;
@@ -22,14 +23,14 @@ public class RecipeRepository {
 
     public List<Recipe> findAll() {
         return jdbcClient.sql("SELECT * FROM Recipe")
-                .query(Recipe.class)
+                .query(recipeRowMapper)
                 .list();
     }
 
     public Optional<Recipe> findById(Integer id) {
         return jdbcClient.sql("SELECT id, title, recipe_type, ingredients, instructions FROM Recipe WHERE id = :id")
                 .param("id", id)
-                .query(Recipe.class)
+                .query(recipeRowMapper)
                 .optional();
     }
 
@@ -70,7 +71,7 @@ public class RecipeRepository {
     public List<Recipe> findByType(RecipeType recipeType) {
         return jdbcClient.sql("SELECT * FROM Recipe WHERE recipe_type = :recipeType")
                 .param("recipeType", recipeType.name())
-                .query(Recipe.class)
+                .query(recipeRowMapper)
                 .list();
     }
 }
