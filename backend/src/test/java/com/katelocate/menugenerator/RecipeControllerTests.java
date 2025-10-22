@@ -9,10 +9,7 @@ import static com.katelocate.menugenerator.recipe.Constants.dayRecipeTypes;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
+import java.util.*;
 import java.util.logging.Logger;
 
 import static io.restassured.RestAssured.given;
@@ -94,11 +91,11 @@ public class RecipeControllerTests {
     }
 
     List<Recipe> testRecipes = List.of(
-            new Recipe(0, "Breakfast", RecipeType.BREAKFAST, List.of("2 eggs", "salt", "peppa"), List.of("Scramble eggs")),
-            new Recipe(1, "Dinner", RecipeType.DINNER, List.of("1 tortilla", "tomatoes", "ground beef", "rice", "corn"), List.of("Burrito")),
-            new Recipe(2, "Snack", RecipeType.SNACK, List.of("3 potatoes", "salt", "peppa", "1 tbsp of cooking oil"), List.of("Potato chips")),
-            new Recipe(3, "Dessert", RecipeType.DESSERT, List.of("glutinous rice flour", "sugar", "water"), List.of("Mochi")),
-            new Recipe(4, "Breakfast number two", RecipeType.BREAKFAST, List.of("1 slice of bread", "peanut butter", "strawberry jam"), List.of("Peanut butter toast"))
+            new Recipe(0, "Breakfast", RecipeType.BREAKFAST, new String[] {"2 eggs", "salt", "peppa"}, new String[] {"Scramble eggs"}),
+            new Recipe(1, "Dinner", RecipeType.DINNER, new String[] {"1 tortilla", "tomatoes", "ground beef", "rice", "corn"}, new String[] {"Burrito"}),
+            new Recipe(2, "Snack", RecipeType.SNACK, new String[] {"3 potatoes", "salt", "peppa", "1 tbsp of cooking oil"}, new String[] {"Potato chips"}),
+            new Recipe(3, "Dessert", RecipeType.DESSERT, new String[] {"glutinous rice flour", "sugar", "water"}, new String[] {"Mochi"}),
+            new Recipe(4, "Breakfast number two", RecipeType.BREAKFAST, new String[] {"1 slice of bread", "peanut butter", "strawberry jam"}, new String[] {"Peanut butter toast"})
     );
 
     static final Logger logger = Logger.getLogger(RecipeControllerTests.class.getName());
@@ -125,8 +122,7 @@ public class RecipeControllerTests {
                 .get("/" + targetRecipe.id)
                 .getBody()
                 .as(Recipe.class);
-
-        assertThat(targetRecipe).isEqualTo(recipe);
+        assertThat(targetRecipe).usingRecursiveComparison().isEqualTo(recipe);
     }
 
     @Test
@@ -152,38 +148,34 @@ public class RecipeControllerTests {
     }
 
     @Test
-    void shouldUpdateRecipe() {
+    void shouldUpdateRecipe() throws IOException {
         recipeRepository.saveAll(testRecipes);
 
-        try {
-            String jsonRecipe = new String(
-                    Files.readAllBytes(
-                            Paths.get("src/test/java/com/katelocate/menugenerator/data/test-put-request.json")
-                    )
-            );
+        String jsonRecipe = new String(
+                Files.readAllBytes(
+                        Paths.get("src/test/java/com/katelocate/menugenerator/data/test-post-request.json")
+                )
+        );
 
-            ObjectMapper jsonMapper = new ObjectMapper();
-            Recipe targetRecipe = jsonMapper.readValue(jsonRecipe, Recipe.class);
+        ObjectMapper jsonMapper = new ObjectMapper();
+        Recipe targetRecipe = jsonMapper.readValue(jsonRecipe, Recipe.class);
 
-            given()
-                    .contentType(ContentType.JSON)
-                    .body(jsonRecipe)
-                    .when()
-                        .put("/" + targetRecipe.id)
-                    .then()
-                        .statusCode(HttpStatus.NO_CONTENT.value());
+        given()
+                .contentType(ContentType.JSON)
+                .body(jsonRecipe)
+                .when()
+                    .put("/" + targetRecipe.id)
+                .then()
+                    .statusCode(HttpStatus.NO_CONTENT.value());
 
-            Recipe updatedRecipe = given()
-                    .contentType(ContentType.JSON)
-                    .get("/" + targetRecipe.id)
-                    .getBody()
-                    .as(Recipe.class);
+        Recipe updatedRecipe = given()
+                .contentType(ContentType.JSON)
+                .get("/" + targetRecipe.id)
+                .getBody()
+                .as(Recipe.class);
 
-            assertThat(targetRecipe).isEqualTo(updatedRecipe);
-        } catch (IOException e) {
-            logger.severe("Failed to read test JSON.");
-            assert false;
-        };
+        assertThat(targetRecipe).usingRecursiveComparison().isEqualTo(updatedRecipe);
+
     }
 
     @Test
@@ -236,7 +228,7 @@ public class RecipeControllerTests {
         recipeRepository.saveAll(targetDayRecipes);
 
         List<Recipe> dayRecipes = getTestDayMenuFromAPI();
-        assertThat(dayRecipes).isEqualTo(targetDayRecipes);
+        assertThat(dayRecipes).usingRecursiveComparison().isEqualTo(targetDayRecipes);
     }
 
     @Test
@@ -315,7 +307,7 @@ public class RecipeControllerTests {
 
         for (List<LinkedHashMap> day: dayRecipes) {
             for (LinkedHashMap recipe: day) {
-                responseTypes.add(recipe.get("recipe_type").toString());
+                responseTypes.add(recipe.get("recipeType").toString());
             }
         }
         assertThat(requestTypes.containsAll(responseTypes)).isEqualTo(true);
