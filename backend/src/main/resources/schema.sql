@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS Recipe;
 CREATE TABLE IF NOT EXISTS Recipe (
    id INT NOT NULL,
    title VARCHAR(250) NOT NULL,
@@ -7,4 +6,3 @@ CREATE TABLE IF NOT EXISTS Recipe (
    instructions TEXT[],
    PRIMARY KEY (id)
 );
-
