@@ -42,7 +42,22 @@ const App = () => {
           </p>
           <div className="collapse" id={`collapse-${index+"-"+recipe.id}`}>
             <div className="card card-body">
-              {recipe.body}
+              <div class="card-header">Ingredients</div>
+              <ul className="list-group list-group-flush p-3">
+                { recipe.ingredients.map((ingredient) =>
+                  <li className="list-group-item">{ingredient}</li>
+                  )
+                }
+              </ul>
+            </div>
+            <div className="card card-body">
+              <div class="card-header">Instructions</div>
+              <ul className="list-group list-group-flush p-3">
+                { recipe.instructions.map((instruction) =>
+                  <li className="list-group-item">{instruction}</li>
+                  )
+                }
+              </ul>
             </div>
           </div>
         </div>
