@@ -2,80 +2,1343 @@
   "recipes": [
     {
       "id": 0,
-      "title": "Vegetarian lasagne",
-      "recipeType": "DINNER",
-      "ingredients": ["3 red peppers, cut into large chunks","2 aubergines, cut into ½ cm thick slices\n8 tbsp olive oil, plus extra for the dish\n300g lasagne sheets\n125g mozzarella\nhandful cherry tomatoes, halved\nFor the tomato sauce\n1 tbsp olive oil\n2 onions, finely chopped\n2 garlic cloves, sliced\n1 carrot, roughly chopped","2 tbsp tomato purée","200ml white wine","3 x 400g cans chopped tomatoes","1 bunch of basil, leaves picked","85g butter","85g plain flour","750ml milk"],
-      "instructions": ["STEP 1\nTo make the tomato sauce, heat the olive oil in a saucepan. Add the onions, garlic and carrot. Cook for 5-7 mins over a medium heat until softened. Turn up the heat a little and stir in the tomato purée. Cook for 1 min, pour in the white wine, then cook for 5 mins until this has reduced by two-thirds. Pour over the chopped tomatoes and add the basil leaves. Bring to the boil then simmer for 20 mins. Leave to cool then whizz in a food processor. Will keep, cooled, in the fridge for up to three days or frozen for three months.","STEP 2\nTo make the white sauce, melt the butter in a saucepan, stir in the plain flour, then cook for 2 mins. Slowly whisk in the milk, then bring to the boil, stirring. Turn down the heat, then cook until the sauce starts to thicken and coats the back of a wooden spoon. Will keep, cooled, in the fridge for up to three days or frozen for three months.","STEP 3\nHeat the oven to 200C/180C fan/gas 6. Lightly oil two large baking trays and add the peppers and aubergines. Toss with the olive oil, season well, then roast for 25 mins until lightly browned.","STEP 4\nReduce the oven to 180C/160C fan/gas 4. Lightly oil a 30 x 20cm ovenproof dish. Arrange a layer of the vegetables on the bottom, then pour over a third of the tomato sauce. Top with a layer of lasagne sheets, then drizzle over a quarter of the white sauce. Repeat until you have three layers of pasta.","STEP 5\nSpoon the remaining white sauce over the pasta, making sure the whole surface is covered, then scatter over the mozzarella and cherry tomatoes. Bake for 45 mins until bubbling and golden."]
+      "title": "Chocolate cake in the microwave",
+      "recipeType": "DESSERT",
+      "ingredients": [
+        "Wheat flour - 3 tbsp.",
+        "Sugar - 1 tbsp.",
+        "Vanilla sugar - 1 tbsp.",
+        "Cocoa - 1 tbsp.",
+        "Baking powder - 0.25 tsp",
+        "Salt - a pinch",
+        "Milk - 5 tbsp",
+        "Vegetable oil - 2 tbsp"
+      ],
+      "instructions": [
+        "Mix all the ingredients. It is important that the dough is runny, so you may need more milk.",
+        "Bake in the microwave for 2 minutes on high power.",
+        "Leave to cool for 2 minutes.",
+        "Serve with vanilla ice cream (or condensed milk)."
+      ]
     },
     {
       "id": 1,
-      "title": "Spicy root & lentil casserole",
-      "recipeType": "DINNER",
-      "ingredients": ["2 tbsp sunflower or vegetable oil","1 onion, chopped","2 garlic clove, crushed","700g potatoes, peeled and cut into chunks","4 carrot, thickly sliced","2 parsnip, thickly sliced","2 tbsp curry paste or powder","1 litre/1¾ pints vegetable stock","100g red lentils","a small bunch of fresh coriander, roughly chopped","low-fat yogurt and naan bread, to serve"],
-      "instructions": ["STEP 1\nHeat the oil in a large pan and cook the onion and garlic over a medium heat for 3-4 minutes until softened, stirring occasionally. Tip in the potatoes, carrots and parsnips, turn up the heat and cook for 6-7 minutes, stirring, until the vegetables are golden.", "STEP 2\nStir in the curry paste or powder, pour in the stock and then bring to the boil. Reduce the heat, add the lentils, cover and simmer for 15-20 minutes until the lentils and vegetables are tender and the sauce has thickened.", "STEP 3\nStir in most of the coriander, season and heat for a minute or so.Top with yogurt and the rest of the coriander. Serve with naan bread."]
+      "title": "Banana smoothie with peanut butter",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Banana - 1-2",
+        "Peanut butter - 2-3 tablespoons",
+        "Cooked oats - 1-2 tablespoons",
+        "Milk",
+        "Cinnamon"
+      ],
+      "instructions": [
+        "Wash, peel, and slice the bananas.",
+        "Mix everything together and blend."
+      ]
     },
     {
       "id": 2,
       "title": "Tuna salad sandwich",
       "recipeType": "BREAKFAST",
-      "ingredients": ["145g can tuna (sunflower oil, olive oil or spring water are all fine), drained if needed","½ stick of celery, peeled, and finely diced","½ small red onion, finely diced","1 tbsp mayonnaise","small pinch of paprika, optional","4 slices granary bread","8 slices cucumber","4 Little Gem lettuce leaves, washed and dried","2 tsp mayonnaise"],
-      "instructions": ["STEP 1\nTo make the tuna salad tip all the ingredients into a bowl, season with a little salt and lots of pepper and use a fork to mash everything together until completely mixed. Will keep covered and chilled for a day.", "STEP 2\nTo assemble the sandwiches pile and spread the tuna salad over two slices of the bread. Add the cucumber and lettuce, then spread the remaining slices with the mayonnaise and use them to top the sandwiches. Press down on the sandwiches lightly, then halve (rectangles or triangles) and serve. Best eaten straightaway or pack into a reusable plastic container for lunch."]
+      "ingredients": [
+        "145g can tuna (sunflower oil, olive oil or spring water are all fine), drained if needed",
+        "½ stick of celery, peeled, and finely diced",
+        "½ small red onion, finely diced",
+        "1 tbsp mayonnaise",
+        "small pinch of paprika, optional",
+        "4 slices granary bread",
+        "8 slices cucumber",
+        "4 Little Gem lettuce leaves, washed and dried",
+        "2 tsp mayonnaise"
+      ],
+      "instructions": [
+        "To make the tuna salad tip all the ingredients into a bowl, season with a little salt and lots of pepper and use a fork to mash everything together until completely mixed. Will keep covered and chilled for a day.",
+        "To assemble the sandwiches pile and spread the tuna salad over two slices of the bread. Add the cucumber and lettuce, then spread the remaining slices with the mayonnaise and use them to top the sandwiches. Press down on the sandwiches lightly, then halve (rectangles or triangles) and serve. Best eaten straightaway or pack into a reusable plastic container for lunch."
+      ]
     },
     {
       "id": 3,
-      "title": "Veggie burritos",
-      "recipeType": "DINNER",
-      "ingredients": ["1 small red onion, finely chopped","250g tomatoes, cut into 1cm cubes","2 tbsp balsamic vinegar","20g parsley, finely chopped","2 tbsp olive oil","2 avocados, stoned, peeled and sliced","1 lime, juiced","1 onion, finely chopped","1 carrot, grated","200g mushrooms, roughly chopped","4 tbsp tomato purée","½ tsp chilli powder (hot or mild, depending on how spicy you like it)","½ tsp ground cumin","1 tsp paprika","400g can kidney beans, drained and rinsed","195g can sweetcorn, drained","pinch of cayenne pepper","8 tortillas","100g cooked rice","200g lettuce, shredded","8 tsp soured cream"],
-      "instructions": ["STEP 1\nTo make the salsa, combine the red onions, tomatoes, vinegar, half the parsley and half the oil, then season to taste. Toss the avocado slices with a splash of the lime juice, and set aside.","STEP 2\nHeat the remaining oil in a non-stick pan over a medium-high heat and cook the onions for 5 mins, then stir in the grated carrot and mushrooms, and cook for 3-5 mins more until lightly browned. Mix in the tomato purée and spices, and cook for 3-5 mins until the purée turns dark red. Pour in 200ml water, the kidney beans, corn and remaining parsley. Cook for 5-6 mins until the mixture has reduced, thickened and is heated through. Season with the cayenne pepper and salt and pepper to taste.","STEP 3\nWarm the tortillas following pack instructions and reheat the rice until piping hot. Assemble the burritos by topping the tortillas with the lettuce, vegetable filling and rice. Dot over the avocado slices and soured cream, then fold in one side of the tortillas and roll up. Serve warm, with the salsa on the side."]
+      "title": "Cinnamon rolls",
+      "recipeType": "DESSERT",
+      "ingredients": [
+        "Flour - 360 g",
+        "Milk - 120 g",
+        "Eggs - 2",
+        "Sugar - 60 g",
+        "Butter - 1 tbsp.",
+        "Yeast - 15 g",
+        "Salt",
+        "Sugar - 60 g",
+        "Cinnamon - 15-20 g",
+        "Butter - 50 g"
+      ],
+      "instructions": [
+        "Mix warm milk, sugar, and yeast.",
+        "Add flour until the consistency resembles sour cream.",
+        "Leave the dough for 0.5-1 hour.",
+        "Add eggs and the remaining sifted flour, knead.",
+        "Leave in a bowl greased with butter for 1 hour, or in the refrigerator overnight.",
+        "Roll out the dough to a medium thickness, brush with butter, and sprinkle with a mixture of cinnamon and sugar.",
+        "Roll the dough into a tube, cut the roll into buns, and place them on a baking sheet so that there is enough space between the buns (they will increase in size).",
+        "Wait 1 hour.",
+        "Bake for 10-20 minutes at 190-200°C."
+      ]
     },
     {
       "id": 4,
-      "title": "Baked oatmeal with raspberry & coconut",
-      "recipeType": "BREAKFAST",
-      "ingredients": ["½ tsp coconut oil, melted","120g porridge oats","2 tbsp desiccated coconut","1 tsp ground cinnamon","40g walnuts, roughly chopped","200g raspberries","300ml plant-based milk (we used oat)","1 tbsp agave syrup"],
-      "instructions": ["STEP 1\nHeat the oven to 180C/160C fan/gas 4. Brush the melted coconut oil over the base and sides of a small baking dish (about 20 x 15cm). Combine the oats, coconut, cinnamon, walnuts, most of the raspberries and a pinch of salt in a bowl. Pour in the plant-based milk and agave, mix well, then pour the mixture into the prepared baking dish.","STEP 2\nScatter over the remaining raspberries. Bake for 20-25 mins until the oatmeal is golden brown. Serve warm."]
+      "title": "Shchi",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Water - 1.5 liters",
+        "Small young cabbage - half a head",
+        "Potatoes - 4",
+        "Onion - 1",
+        "Carrots - 2",
+        "Chicken breast",
+        "Bay leaves - 3",
+        "Allspice berries - 3",
+        "Black peppercorns - 7"
+      ],
+      "instructions": [
+        "Pierce the onion with a stick",
+        "Cut the carrots into half rings or quarters",
+        "Bring water to a boil, use just enough to cover the onion",
+        "Add the onion",
+        "Cut the cabbage, thinly slice carrots, and cut potatoes in cubes",
+        "Add the cabbage and cook for 10 minutes",
+        "Add the carrots and cook until almost done",
+        "Add the potatoes",
+        "Fry the chicken and add to the soup when the potatoes are almost cooked.",
+        "Add the spices and cook for a few minutes",
+        "Add salt, bring to a boil, turn off the heat",
+        "Ideally let the soup cool down and leave it in the fridge overnight before serving",
+        "Serve hot with a spoon of sour cream or greek yoghurt and black bread."
+      ]
     },
     {
       "id": 5,
-      "title": "Breakfast hash",
-      "recipeType": "BREAKFAST",
-      "ingredients": ["2 potatoes, cut into 2cm cubes (about 450g)","3 rashers back bacon","1 red pepper, cut into 2cm cubes","4 eggs","50g feta, crumbled","small handful of parsley, finely chopped"],
-      "instructions": ["STEP 1\nTip the potatoes into a pan of cold water with a generous pinch of salt. Bring to the boil, then reduce the heat and simmer for 10 mins until tender. Drain well and set aside to steam-dry. Meanwhile, put the bacon rashers in a 30cm wide ovenproof frying pan set over a medium heat and fry for 3-4 mins on both sides until almost crispy. Remove to a plate, leaving the fat behind in the pan, and set aside. Once cooled slightly, roughly cut into strips.","STEP 2\nHeat the oven to 200C/180C fan/gas 6 and heat the residual bacon fat in the pan over a medium heat, then tip in the potatoes. Stir well, then cook undisturbed for 3-5 mins. Mix in the peppers and season well. Cook, undisturbed, for 3 mins more. Stir, then cook for a further 2-4 mins until the potatoes are lightly browned. Stir in the bacon strips and cook for another 2 mins.","STEP 3\nRemove the pan from the heat and make four gaps in the mixture using the back of a spoon. Crack an egg into each and sprinkle over the feta. Bake in the oven for 6-8 mins, or until the eggs are cooked to your liking. Scatter over the parsley to serve."]
+      "title": "Chicken broth",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Water - 2 l",
+        "Chicken",
+        "Potatoes - 250 g",
+        "Vermicelli - 100 g",
+        "Onions - 120 g",
+        "Carrots - 100 g",
+        "Salt",
+        "Pepper"
+      ],
+      "instructions": [
+        "Boil salted water",
+        "Add chicken and cook for 20 minutes",
+        "Remove meat and cut into pieces",
+        "Fry vegetables",
+        "Boil potatoes, add vermicelli",
+        "Add fried vegetables and meat"
+      ]
     },
     {
       "id": 6,
-      "title": "Almond & orange Pesach mandelbrot",
-      "recipeType": "DESSERT",
-      "ingredients": ["180g ground almonds","100g fine matzo meal","2 eggs","60ml sunflower oil","150g caster sugar","1 orange, zested","90g dark chocolate, roughly chopped into 1cm pieces","80g blanched almonds, roughly chopped"],
-      "instructions": ["STEP 1\nHeat the oven to 150C/130C fan/gas 2. Line two baking sheets with baking parchment. Mix the ground almonds, matzo meal and a large pinch of salt in a large bowl and set aside.","STEP 2\nBeat the eggs, oil and sugar for 3-4 mins in a stand mixer fitted with the whisk attachment (or using an electric whisk), until pale and airy then whisk in the orange zest. Stir in the ground almond mixture, then the chocolate chunks and blanched almonds.","STEP 3\nHalve the dough and, with damp hands if it’s sticky, make two oblong logs, each about 5cm wide. Put them on the baking sheets and bake for 45 mins. Cool on the baking sheets for 10 mins. Reduce the oven to 140C/120C fan/gas 1. Transfer the baked dough to a chopping board and, using a serrated knife, cut each one diagonally into slices that are 1.5-2cm wide.","STEP 4\nTurn the baking parchment over, put the biscotti back on the baking sheets and bake for another 15 mins. Remove from the oven, turn them over, then bake for another 15 mins until firm to the touch on the outside but still soft on the inside. Keep an eye on them to make sure they do not get too dark. They will get more crunchy as they cool. Cool for 5 mins on the tray, then slide the parchment and cookies onto a wire rack to cool completely. Will keep in an airtight container for up to 10 days."]
+      "title": "Rassolnik",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Water - 2.5 liters",
+        "Potatoes - 200 g",
+        "Carrots - 100 g",
+        "Onions - 50 g",
+        "Barley - 100 g",
+        "Fermented cucumbers - 100 g",
+        "Tomato paste - 4 tablespoons",
+        "Bay leaves - 2",
+        "Sunflower oil - 3 tbsp",
+        "Salt",
+        "Black peppercorns - 7"
+      ],
+      "instructions": [
+        "Fry finely chopped onion, carrot, cucumbers, adding them gradually (depending on how cooked you like them).",
+        "Boil the water, add rinsed barley, cook on slow-medium heat until almost done",
+        "Add veggies and potatoes cut in cubes",
+        "Dissolve tomato paste in a cup of water, add to the soup",
+        "Add spices",
+        "Add cucumber marinade, soup should taste a little sour.",
+        "When cooked - add salt to taste."
+      ]
     },
     {
       "id": 7,
-      "title": "Cauliflower popcorn with soured cream & herb dressing",
-      "recipeType": "SNACK",
-      "ingredients": ["1 medium cauliflower (about 1kg)","125g plain flour","25g parmesan or vegetarian alternative, grated","1 tsp onion granules","½ tsp dried oregano","1 tsp paprika","1 egg","150ml milk","80g panko breadcrumbs","olive oil, for drizzling (optional)","150ml soured cream","pinch of onion granules","10g chives, chopped"],
-      "instructions": ["STEP 1\nMake the dip first by combining the soured cream, onion granules, some seasoning and all but 1 tbsp of the chives. Mix to combine, spoon into a small serving bowl and scatter over the reserved chives. Chill until needed. Will keep chilled for 24 hrs.","STEP 2\nCut the cauliflower into small florets and set aside. Combine the flour, parmesan, onion granules, dried oregano and paprika in a bowl, then mix in the egg and as much milk as you need to create a thick batter. Season well and set aside. Tip the breadcrumbs onto a plate. Dip the florets into the batter, shake off any excess, then roll in the breadcrumbs to coat. Transfer to a plate.","STEP 3\nHeat the air-fryer to 200C for 2-3 mins, then put the cauliflower in the basket in a single layer (you’ll need to cook in batches) and cook for 15-20 mins until golden and crisp. Alternatively, to cook in the oven, drizzle over a little olive oil and bake at 200C/180C fan/gas 6 for 20 mins until golden and crisp. Serve straightaway with the dip."]
+      "title": "Bean salad",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Canned beans",
+        "Sweet peppers",
+        "Lettuce",
+        "Tomatoes (preferably cherry)",
+        "Seeds or chopped nuts",
+        "Croutons or chips (optional)",
+        "Vegetable oil (1 tbsp per serving)",
+        "Lemon juice (1/2 per serving)",
+        "Salt",
+        "Pepper",
+        "Basil",
+        "Extra virgin olive oil"
+      ],
+      "instructions": [
+        "Mix everything in a bowl, the beans may be preheated for a warm salad."
+      ]
     },
     {
       "id": 8,
       "title": "Hummus with fresh veggies.",
       "recipeType": "SNACK",
-      "ingredients": ["1 medium cauliflower (about 1kg)","125g plain flour","25g parmesan or vegetarian alternative, grated","1 tsp onion granules","½ tsp dried oregano","1 tsp paprika","1 egg","150ml milk","80g panko breadcrumbs","olive oil, for drizzling (optional)","150ml soured cream","pinch of onion granules","10g chives, chopped"],
-      "instructions": ["STEP 1\nMake the dip first by combining the soured cream, onion granules, some seasoning and all but 1 tbsp of the chives. Mix to combine, spoon into a small serving bowl and scatter over the reserved chives. Chill until needed. Will keep chilled for 24 hrs.","STEP 2\nCut the cauliflower into small florets and set aside. Combine the flour, parmesan, onion granules, dried oregano and paprika in a bowl, then mix in the egg and as much milk as you need to create a thick batter. Season well and set aside. Tip the breadcrumbs onto a plate. Dip the florets into the batter, shake off any excess, then roll in the breadcrumbs to coat. Transfer to a plate.","STEP 3\nHeat the air-fryer to 200C for 2-3 mins, then put the cauliflower in the basket in a single layer (you’ll need to cook in batches) and cook for 15-20 mins until golden and crisp. Alternatively, to cook in the oven, drizzle over a little olive oil and bake at 200C/180C fan/gas 6 for 20 mins until golden and crisp. Serve straightaway with the dip."]
+      "ingredients": [
+        "Hummus",
+        "Fresh veggies",
+        "Bread (optional)"
+      ],
+      "instructions": [
+      ]
     },
     {
       "id": 9,
-      "title": "Mochi",
-      "recipeType": "DESSERT",
-      "ingredients": ["1 medium cauliflower (about 1kg)","125g plain flour","25g parmesan or vegetarian alternative, grated","1 tsp onion granules","½ tsp dried oregano","1 tsp paprika","1 egg","150ml milk","80g panko breadcrumbs","olive oil, for drizzling (optional)","150ml soured cream","pinch of onion granules","10g chives, chopped"],
-      "instructions": ["STEP 1\nMake the dip first by combining the soured cream, onion granules, some seasoning and all but 1 tbsp of the chives. Mix to combine, spoon into a small serving bowl and scatter over the reserved chives. Chill until needed. Will keep chilled for 24 hrs.","STEP 2\nCut the cauliflower into small florets and set aside. Combine the flour, parmesan, onion granules, dried oregano and paprika in a bowl, then mix in the egg and as much milk as you need to create a thick batter. Season well and set aside. Tip the breadcrumbs onto a plate. Dip the florets into the batter, shake off any excess, then roll in the breadcrumbs to coat. Transfer to a plate.","STEP 3\nHeat the air-fryer to 200C for 2-3 mins, then put the cauliflower in the basket in a single layer (you’ll need to cook in batches) and cook for 15-20 mins until golden and crisp. Alternatively, to cook in the oven, drizzle over a little olive oil and bake at 200C/180C fan/gas 6 for 20 mins until golden and crisp. Serve straightaway with the dip."]
+      "title": "Vinaigrette",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Beets",
+        "Carrots",
+        "Potatoes",
+        "Canned peas",
+        "Fermented cucumbers",
+        "Vegetable oil",
+        "Dill",
+        "Salt",
+        "Tuna or sprats"
+      ],
+      "instructions": [
+        "Boil the beets, carrots, and potatoes together until cooked (remove them from the pot when they are ready, potatoes first).",
+        "Peel and chop cooled veggies.",
+        "Mix veggies with cut cucumbers and dill.",
+        "Season with oil and salt to taste.",
+        "Ideally serve with salty and smoked canned fish and bread."
+      ]
     },
     {
       "id": 10,
-      "title": "Fresh fruit",
+      "title": "Oatmeal pancakes with banana",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Oatmeal",
+        "Milk",
+        "1-2 bananas",
+        "Egg (optional)",
+        "Flour (optional)"
+      ],
+      "instructions": [
+        "Pour milk over the oatmeal and leave for 5-15 minutes.",
+        "Mash the banana (for example, with a fork on a plate).",
+        "Mix the banana, oats, and egg. If the dough is too runny, add a little flour.",
+        "Fry in a pan."
+      ]
+    },
+    {
+      "id": 11,
+      "title": "\"Potato\" cake",
+      "recipeType": "DESSERT",
+      "ingredients": [
+        "Marie or similar biscuits - 250 g",
+        "Milk - 75 ml",
+        "Butter - 50 g",
+        "Sugar - 50 g",
+        "Cocoa powder - 3 tbsp",
+        "Vanilla essence - 3 ml"
+      ],
+      "instructions": [
+        "Crush the cookies into crumbs.",
+        "In a saucepan, mix the sugar, 2/3 of the cocoa, and milk, stirring thoroughly.",
+        "Add butter.",
+        "Place on the stove. Bring to a boil over medium heat, stirring constantly.",
+        "Cool.",
+        "Mix the remaining cocoa and 1 tablespoon of cookies for sprinkling.",
+        "Mix the cooled mixture and cookies, add vanilla essence.",
+        "Form the cakes, roll them in the topping.",
+        "Leave in the refrigerator for at least 1 hour."
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Strawberry-banana smoothie",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Banana - 1",
+        "Strawberries - 6-7",
+        "Water - 0.5 cups"
+      ],
+      "instructions": [
+        "Wash, peel, and chop the fruit and berries.",
+        "Optionally, you can add cooked oatmeal for thickness, or use milk instead of water.",
+        "Mix everything together and blend until smooth."
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Apple jam",
+      "recipeType": "DESSERT",
+      "ingredients": [
+        "Apples - 2 kg",
+        "Sugar - 800 g",
+        "Water - 80 ml",
+        "Citric acid - 0.5 tsp"
+      ],
+      "instructions": [
+        "Remove the cores from the apples and cut them into pieces.",
+        "Place the pieces in a wide saucepan, add water, and cook until the apples are soft.",
+        "Puree the apples or rub them through a sieve.",
+        "Mix the apple puree and sugar and cook until the desired consistency is reached.",
+        "Pour into sterilized jars."
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Sauerkraut soup",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Water - 2 liters",
+        "Meat",
+        "Sauerkraut - 250 g",
+        "Potatoes - 4",
+        "Carrots - 2",
+        "Onion - 1",
+        "Parsley root - 1",
+        "Garlic - 3 cloves",
+        "Tomato paste - 2 tbsp.",
+        "Bay leaf",
+        "Cumin seeds",
+        "Pepper corns",
+        "Salt",
+        "Oil"
+      ],
+      "instructions": [
+        "Fry finely chopped onion, carrot, parsley root, garlic cloves adding them gradually (depending on how cooked you like them).",
+        "Boil the water, add meat and the cabbage, cook on slow-medium heat",
+        "Remove cooked meat",
+        "When the cabbage is almost soft - add the potatoes cut in cubes.",
+        "Dissolve tomato paste in a cup of water, add to the soup",
+        "Add spices and meat cut into small pieces",
+        "When potatoes are cooked - add salt to taste."
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Ice cream with strawberry filling",
+      "recipeType": "DESSERT",
+      "ingredients": [
+        "Dark chocolate",
+        "Whipping cream - 180 g",
+        "Strawberry jam - 180 g",
+        "Bags - ice cream molds"
+      ],
+      "instructions": [
+        "Put 10 g of chocolate in each mold.",
+        "Dip the molds in hot water to melt the chocolate, spread it over the sides of the mold.",
+        "Whip the cream",
+        "Add the strawberry jam and mix",
+        "Divide the filling between the molds",
+        "Place in the freezer for 4 hours"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Yeast pancakes or crepes",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Yeast (based on the weight of the flour)",
+        "Flour (with or without additives, such as oatmeal)",
+        "Sugar (1 tablespoon per 1 kg of flour)",
+        "Milk (with or without added water, warm, but not above 40°C, not to kill the yeast)"
+      ],
+      "instructions": [
+        "It is convenient to mix cold milk with boiling water. Mix everything together (if you want pancakes, add more water to make the dough more liquid).",
+        "Cover and leave in a warm place until doubled in size (or overnight in the refrigerator).",
+        "Fry."
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Stuffed peppers",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Large peppers - 5 pcs.",
+        "Rice - 100 g",
+        "Minced meat - 500 g",
+        "Meat spices (khmeli-suneli)",
+        "Salt",
+        "Pepper",
+        "Garlic",
+        "Green onions",
+        "Tomato paste - 3 tbsp.",
+        "Hot sauce - 1 tsp.",
+        "Salt - 1 tsp",
+        "Water - 500 ml"
+      ],
+      "instructions": [
+        "Rinse and soak the rice.",
+        "Fry the minced meat with spices, green onions, and garlic.",
+        "Mix the tomato paste, hot sauce, salt, and water.",
+        "Remove core from the peppers but leave the top part to cover them later.",
+        "Stuff the peppers with the minced meat mixture.",
+        "Place the peppers tightly in a baking dish",
+        "Pour the sauce over them, put top parts back..",
+        "Cook on slow heat for about 40 minutes."
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Oat pancakes",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Oats - 100-150 g",
+        "Eggs - 1-2",
+        "Milk",
+        "Wheat flour - optional",
+        "Cheese",
+        "Ham",
+        "Mayonnaise / ketchup / hot sauce"
+      ],
+      "instructions": [
+        "Pour milk over the oatmeal and leave for 5-15 minutes",
+        "Add eggs, mix well",
+        "Add a little flour if the dough is too runny",
+        "Place in a frying pan, fry until cooked on both sides",
+        "Place cheese, ham, and sauces on one side",
+        "Fold in half, heat slightly in a frying pan to melt the cheese"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Potato casserole",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Potatoes - 700 g",
+        "Minced meat - 400 g",
+        "Hard cheese - 90 g",
+        "Onion - to taste",
+        "Eggs - 1-2 pcs.",
+        "Sour cream - 1-2 tbsp. (optional)",
+        "Salt",
+        "Pepper",
+        "Oil"
+      ],
+      "instructions": [
+        "Grate the potatoes and squeeze out the excess liquid.",
+        "Place half of the potatoes in a greased baking dish.",
+        "Spread the minced meat on top, season with salt and pepper.",
+        "Sprinkle with green onions or sautéed onions.",
+        "Grate the cheese, mix with the remaining potatoes, add the eggs, stir, add the spices and sour cream",
+        "Spread the mixture over the minced meat",
+        "Preheat the oven to 180°C",
+        "Bake the casserole for about 1 hour"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "English muffins",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Flour - 625 g",
+        "Unsalted butter, softened - 40 g",
+        "Fast-acting yeast - according to the amount of flour",
+        "Salt - 0.5-1 tbsp",
+        "Sugar - 1.5 tbsp",
+        "Milk, 3% fat - 300 ml",
+        "Water - 135 ml",
+        "Vegetable oil - as needed",
+        "Semolina - as needed"
+      ],
+      "instructions": [
+        "Combine the flour, yeast, salt, and sugar, and mix thoroughly.",
+        "Add the oil, milk, and water, and knead the dough until smooth.",
+        "Grease a bowl well with oil and place the dough in it.",
+        "Pull the dough from one edge, fold it into the center, and repeat 5-6 times (lift and fold technique). Leave the dough for 15 minutes. Repeat 3 more times. Knead - leave - knead - leave - knead.",
+        "Put the dough in the refrigerator overnight.",
+        "Prepare a baking sheet - sprinkle with semolina.",
+        "Divide the dough into equal parts (90 g each), roll into balls. Flatten slightly (they should be no more than 3 cm thick), dip each side in semolina and place on the baking sheet. There should be 2-5 cm between the buns.",
+        "Cover with a towel or plastic wrap and leave at room temperature for 1-2 hours.",
+        "Heat a frying pan over medium heat. Cook each muffin for 7-8 minutes on each side.",
+        "Allow to cool completely (you can even leave them overnight).",
+        "Store at room temperature for 3-4 days. Frozen, they will keep for up to 3 months."
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Cheesecakes (syrniki)",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Cottage cheese (0-20% fat) - 500 g",
+        "Eggs - 1-2",
+        "Flour - enough to make the dough not too runny",
+        "Vanilla sugar 10 g",
+        "Sugar - 1 tbsp",
+        "A pinch of salt"
+      ],
+      "instructions": [
+        "Mix all ingredients",
+        "One syrnik is about one tablespoon. If desired, each syrnik can be rolled in flour before frying.",
+        "Form a ball from the dough, flatten it until syrnik is about 2-3 cm thick.",
+        "Fry in a greased heated pan on both sides until cooked through and crispy on the outside."
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Quesadilla with potatoes",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Potatoes - 2 large",
+        "Ham",
+        "Peas",
+        "Corn",
+        "Salted cheese (Parmesan)",
+        "Tomato sauce",
+        "Cream cheese (mozzarella)",
+        "Black pepper",
+        "Tortillas"
+      ],
+      "instructions": [
+        "Wash and peel the potatoes, cut them into cubes, and boil for 10-15 minutes.",
+        "Fry the ham, peas and corn.",
+        "Mash the potatoes and add black pepper.",
+        "Grate the salty cheese on a fine grater and add to the potatoes.",
+        "Add the ham, peas, and corn.",
+        "Spread tomato sauce on the tortilla; you can add hot sauce if you like.",
+        "Sprinkle with grated cream cheese.",
+        "Place the filling on half of the tortilla, fold it over, and fry on both sides."
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Burrito muffins",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Burrito wraps",
+        "Eggs",
+        "Any omelet filling:",
+        "Bacon",
+        "Cheese",
+        "Greens"
+      ],
+      "instructions": [
+        "Roll the wraps into a roll",
+        "Cut to fit the muffin tins",
+        "Place in the molds",
+        "Pour in the eggs",
+        "Add the filling",
+        "Bake in the oven until done"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Burritos",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Beans",
+        "Lettuce",
+        "Corn",
+        "Fresh vegetables for filling",
+        "Garlic",
+        "Tomato paste",
+        "Tortillas",
+        "Hot sauce"
+      ],
+      "instructions": [
+        "Prepare the sauce: simmer the tomatoes, add tomato paste for extra flavor, add beans, cooked meat, garlic, spices, hot sauce to taste, salt, honey or sugar to taste.",
+        "Optionally, heat the entire burrito in a pan until golden brown.",
+        "Place lettuce and sauce on the tortilla, sprinkle with corn, add fresh vegetables."
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Shortbread cookies with berries",
+      "recipeType": "DESSERT",
+      "ingredients": [
+        "Unsalted butter - 85 g",
+        "Wheat flour - 130 g",
+        "Powdered sugar - 35 g",
+        "Eggs - 1",
+        "Salt",
+        "Berries for decoration"
+      ],
+      "instructions": [
+        "Heat the eggs and butter to room temperature.",
+        "Knead the butter",
+        "Add powdered sugar, mix well",
+        "Add the egg, mix",
+        "Sift the flour, add a pinch of salt, mix gently",
+        "Place the dough on parchment paper",
+        "Roll out between two sheets of parchment paper to a thickness of ~3 mm",
+        "Refrigerate for 30 minutes",
+        "Cut the berries into rings, sprinkle with sugar, place on napkins to dry slightly (20 minutes).",
+        "Cut cookies out of the dough.",
+        "Pat the berries dry and decorate the cookies.",
+        "Bake for 30 minutes at 150°C."
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Fish in mustard",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Frozen fish fillets",
+        "Mustard",
+        "Salt",
+        "Pepper"
+      ],
+      "instructions": [
+        "Prepare the fish: defrost and dry.",
+        "Heat the frying pan.",
+        "Coat each piece of fish with mustard on both sides, sprinkle with salt and pepper.",
+        "Bake on each side until done."
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Shawarma",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Chicken (breast or thighs, fillet)",
+        "Chicken seasoning",
+        "Cabbage or lettuce leaves",
+        "Tomatoes",
+        "Cucumbers",
+        "Shawarma yoghurt-based sauce",
+        "Cheddar cheese (optional)",
+        "Tortillas or flatbread"
+      ],
+      "instructions": [
+        "Fry the chicken with meat seasoning.",
+        "Cut the vegetables, optionally mix them into a salad.",
+        "Wrap into tortillas. On each tortilla place veggies mix, meat and a spoon of sauce.",
+        "Fry on greased pan until golden on both sides."
+      ]
+    },
+    {
+      "id": 28,
+      "title": "Sauerkraut",
       "recipeType": "SNACK",
-      "ingredients": ["1 medium cauliflower (about 1kg)","125g plain flour","25g parmesan or vegetarian alternative, grated","1 tsp onion granules","½ tsp dried oregano","1 tsp paprika","1 egg","150ml milk","80g panko breadcrumbs","olive oil, for drizzling (optional)","150ml soured cream","pinch of onion granules","10g chives, chopped"],
-      "instructions": ["STEP 1\nMake the dip first by combining the soured cream, onion granules, some seasoning and all but 1 tbsp of the chives. Mix to combine, spoon into a small serving bowl and scatter over the reserved chives. Chill until needed. Will keep chilled for 24 hrs.","STEP 2\nCut the cauliflower into small florets and set aside. Combine the flour, parmesan, onion granules, dried oregano and paprika in a bowl, then mix in the egg and as much milk as you need to create a thick batter. Season well and set aside. Tip the breadcrumbs onto a plate. Dip the florets into the batter, shake off any excess, then roll in the breadcrumbs to coat. Transfer to a plate.","STEP 3\nHeat the air-fryer to 200C for 2-3 mins, then put the cauliflower in the basket in a single layer (you’ll need to cook in batches) and cook for 15-20 mins until golden and crisp. Alternatively, to cook in the oven, drizzle over a little olive oil and bake at 200C/180C fan/gas 6 for 20 mins until golden and crisp. Serve straightaway with the dip."]
+      "ingredients": [
+        "Medium-sized white (winter) cabbage - 2 kg",
+        "Carrot - 2 pc.",
+        "Salt, without iodine - 50 g"
+      ],
+      "instructions": [
+        "Finely chop and weigh the cabbage",
+        "Grate the carrot and add to the cabbage",
+        "Sprinkle the salt over the cabbage and knead until your hands become wet. Leave covered for half an hour.",
+        "Transfer the cabbage to a container (glass/glazed ceramic cylindrical pot).",
+        "Press down the cabbage.",
+        "Cover with a plate (that can fit into container) turned upside down and weigh down with a weight (a bottle of water or any clean and heavy glass object will do).",
+        "The liquid from cabbage should cover all the vegetables, otherwise add more weight, if this does not help - add a little water.",
+        "Twice a day, use a wooden spatula or stick to poke holes in the cabbage in a circular motion to release the gas (otherwise the cabbage may taste bitter).",
+        "Leave at room temperature until sour and tasty.",
+        "Transfer the cabbage to sterilized jars and store in the refrigerator."
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Lazy casserole",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Potatoes - 8",
+        "Carrots - 2",
+        "Onion - 1",
+        "Ready-made beans - 400 g",
+        "Minced pork + chicken - 400 g",
+        "Potato chips",
+        "Salt",
+        "Pepper",
+        "Oil",
+        "Green onions",
+        "Dill"
+      ],
+      "instructions": [
+        "Boil the potatoes and carrots, mash, and add salt.",
+        "Finely chop the onion and sauté in oil for 5 minutes.",
+        "Add the minced meat, fry over medium heat, season with pepper and salt",
+        "Add the beans to the minced meat, simmer everything together for 2-3 minutes",
+        "Serve the hot mashed potatoes with the minced meat and bean topping, sprinkle with herbs and chips"
+      ]
+    },
+    {
+      "id": 30,
+      "title": "Carrot muffins",
+      "recipeType": "DESSERT",
+      "ingredients": [
+        "Eggs - 3",
+        "Flour - 150 g",
+        "Carrots without juice (grated on a fine grater and squeezed) - 150-180 g",
+        "Sugar - 70 g",
+        "Vegetable oil - 70 g",
+        "Scalded and rinsed raisins - 50-100 g",
+        "Baking powder - 2 tsp (or 1 tsp vinegar + 0.5 tsp baking soda)",
+        "Zest of 1 orange",
+        "Cinnamon - 1 tsp"
+      ],
+      "instructions": [
+        "Preheat the oven to 180 degrees (preferably with convection).",
+        "Mix the eggs, zest, sugar, cinnamon, vegetable oil, and raisins.",
+        "Add the carrots to the mixture.",
+        "Add the baking powder (or vinegar and baking soda).",
+        "Divide the batter between the molds. There should be room for the cake to rise (for example, for paper liners in a metal cake pan - about 2 tablespoons of batter per mold).",
+        "Bake for about 20 minutes until browned or a toothpick inserted into the center comes out clean (insert a toothpick into the cupcake to the full length, after removal there should be no traces on the toothpick)."
+      ]
+    },
+    {
+      "id": 31,
+      "title": "Vanilla pudding",
+      "recipeType": "DESSERT",
+      "ingredients": [
+        "Egg yolks - 2",
+        "Starch - 2 tablespoons",
+        "Sugar - 2 - 2.5 tablespoons",
+        "Milk - 400 ml",
+        "Vanillin - 1 g (or vanilla sugar - 5 g instead of 1 tablespoon of sugar)"
+      ],
+      "instructions": [
+        "Heat the milk.",
+        "Mix part of the milk with the egg yolks, add sugar and starch.",
+        "Combine the mixture with warm milk and cook until the pudding thickens, stirring constantly.",
+        "When adding the mixture to the milk and after it is ready, strain through a fine sieve to remove lumps.",
+        "Pour into cups, cover with plastic wrap (the wrap should touch the mixture), and let cool."
+      ]
+    },
+    {
+      "id": 32,
+      "title": "Cabbage salad",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Cabbage",
+        "Sweet pepper",
+        "Corn",
+        "Carrots (optional)",
+        "Apple (optional)",
+        "Peanuts",
+        "Sour cream and mayonnaise mixture or seed oil with lemon juice",
+        "Salt",
+        "Pepper"
+      ],
+      "instructions": [
+        "Chop all the vegetables.",
+        "Mix with the peanuts, season with salt, pepper and the sauce."
+      ]
+    },
+    {
+      "id": 33,
+      "title": "Tomato cream soup",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Tomatoes - 630 g",
+        "Potatoes - 200 g",
+        "Tomato paste - 70 g",
+        "Cream (10-15%) - 40 g",
+        "Onion - 80 g",
+        "Water - 600 ml",
+        "Garlic - 1 clove",
+        "Vegetable oil",
+        "Salt",
+        "Pepper",
+        "Parsley"
+      ],
+      "instructions": [
+        "Wash and peel the vegetables.",
+        "Cut the potatoes into large pieces and boil until tender, 10-15 minutes.",
+        "Place the tomatoes in boiling water for 30-60 seconds, then transfer to ice water for 30 seconds. Remove and peel. Cut the flesh into small pieces.",
+        "Heat the vegetable oil in a heavy-bottomed saucepan, peel and finely chop the onion and garlic, add to the saucepan and fry for 1-2 minutes until soft.",
+        "Add the chopped tomatoes.",
+        "Simmer for 5-7 minutes over medium heat, stirring occasionally.",
+        "Pour in hot water (or potato broth), add tomato paste",
+        "Add salt, spices, bring to a boil, cook for 10 minutes over low heat",
+        "Add potatoes and cream",
+        "Blend with a blender"
+      ]
+    },
+    {
+      "id": 34,
+      "title": "Okonomiyaki",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Cabbage - 200 g",
+        "Sausage / ham / bacon",
+        "Cheese (optional)",
+        "Egg - 1",
+        "Water - 20 ml",
+        "Flour - 20 g",
+        "Salt",
+        "Pepper",
+        "Sesame seeds for topping (optional)",
+        "Mayonnaise / ketchup / oyster sauce"
+      ],
+      "instructions": [
+        "Finely chop the cabbage",
+        "Cut the meat",
+        "Grate the cheese",
+        "Mix everything with the egg, water, salt, and pepper",
+        "Add flour until the mixture has the consistency of sour cream",
+        "Fry over medium heat like pancakes (try to make them thin)"
+      ]
+    },
+    {
+      "id": 35,
+      "title": "Tuna sandwich",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Canned tuna - 150 g",
+        "Unsweetened, low-fat cream cheese - 80 g",
+        "Mayonnaise",
+        "Cucumber - 50 g",
+        "Black olives - 50 g",
+        "Bread"
+      ],
+      "instructions": [
+        "Finely chop the olives",
+        "Mix all the ingredients into paste.",
+        "Fry the toast (optional).",
+        "Make sandwiches."
+      ]
+    },
+    {
+      "id": 36,
+      "title": "Margherita pizza (Denis's recipe)",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Whole grain flour - 300 g",
+        "Wheat flour - 200 g",
+        "Water - 250 g",
+        "Salt - 1 tsp",
+        "Sugar - 1 tsp",
+        "Olive oil - 2 tbsp",
+        "Yeast - fast-acting or regular, see instructions",
+        "Passata",
+        "Olive oil",
+        "Mozzarella",
+        "Parmesan (optional)",
+        "Basil",
+        "Oregano (optional)"
+      ],
+      "instructions": [
+        "Activate the yeast according to the instructions, if necessary.",
+        "Mix the flour, water, salt, sugar, oil, and yeast. Knead with your hands for 10 minutes. Coat your hands with oil to prevent sticking.",
+        "Form the dough into a ball, place in a pan, cover with a damp towel, and leave for 1 hour.",
+        "Stretch the dough with your hands into a small sausage shape and divide into 3 equal parts.",
+        "Knead each part for 5 minutes, form a ball, place in a separate pan, cover with a damp towel, and leave for at least 2 hours.",
+        "Preheat the oven to the maximum temperature.",
+        "Carefully stretch each ball with your hands to 28-30 cm, keeping the edges intact, as if squeezing the ball from the center to the edges.",
+        "Drizzle the dough with a small amount of olive oil.",
+        "Add a layer of passata, oregano, basil leaves, mozzarella, and grated Parmesan.",
+        "Sprinkle flour on the baking sheet.",
+        "Place the baking sheet with the pizza as close to the heat source as possible for 5-7 minutes, depending on the oven.",
+        "Immediately after removing the baking sheet from the oven, shake it sharply to loosen the pizza, or you can carefully pry it off with a knife."
+      ]
+    },
+    {
+      "id": 37,
+      "title": "Darnitsky Bread",
+      "recipeType": "SNACK",
+      "ingredients": [
+        "Starter:",
+        "100% hydration sourdough starter - 80 g",
+        "Water - 440 ml",
+        "Rye flour - 440 g",
+        "Dough:",
+        "Starter (all)",
+        "Rye flour - 180 g",
+        "Premium wheat flour - 440 g",
+        "Water - 300 ml",
+        "Salt - 22 g"
+      ],
+      "instructions": [
+        "Mix the ingredients for the starter. Cover and leave for 12 hours at a temperature of 25 °C.",
+        "Mix the ingredients for the dough. Cover tightly and leave for 2 hours at a temperature of 25 °C.",
+        "Shape the dough into a loaf and smooth the surface.",
+        "Place in a greased baking tin and leave for 40 minutes.",
+        "Bake for 45 minutes at 230°C in the oven.",
+        "Or bake for 50 minutes in a pan with a splitter, covered with a baking sheet, on low heat.",
+        "Turn over and bake for another 20 minutes under the baking sheet to remove moisture.",
+        "Cool for at least 4 hours."
+      ]
+    },
+    {
+      "id": 38,
+      "title": "Fruit gummies",
+      "recipeType": "SNACK",
+      "ingredients": [
+        "Fruit or berries that are easy to blend - 450 g",
+        "Lemon juice",
+        "Honey",
+        "Water",
+        "Agar-agar"
+      ],
+      "instructions": [
+        "Blend the fruit in a blender",
+        "Add lemon juice and honey to taste",
+        "Add water for liquid (3/4 cup of water for 450 g of fruit, juice of 2 lemons, and 1/3 cup of honey)",
+        "Add 1 teaspoon of agar-agar to 1 cup of the mixture.",
+        "Bring the mixture to a boil over medium-low heat, stirring constantly.",
+        "Turn off the heat and stir for another 2 minutes.",
+        "Pour the mixture into molds and let cool for at least 30 minutes."
+      ]
+    },
+    {
+      "id": 39,
+      "title": "Scrambled eggs with tomatoes",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Large tomatoes",
+        "Greens",
+        "Flour - 2 tablespoons",
+        "Eggs - 2",
+        "Salt",
+        "Spices"
+      ],
+      "instructions": [
+        "Cut the tomatoes into rings",
+        "Cut out the middle (leave only the outer shell)",
+        "Finely chop the middles, add chopped greens",
+        "Add flour and eggs, mix well",
+        "Heat a frying pan, grease with oil, place the tomato rings on it",
+        "Pour the mixture into each ring",
+        "Fry on both sides until done"
+      ]
+    },
+    {
+      "id": 40,
+      "title": "Cottage cheese casserole",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Cottage cheese - 500 g",
+        "Eggs - 2",
+        "Semolina - 50 g",
+        "Milk - 100 ml",
+        "Sugar - 1 tbsp",
+        "Vanilla sugar - 10 g",
+        "Raisins - a handful, washed"
+      ],
+      "instructions": [
+        "Mix everything except the raisins.",
+        "Blend with an immersion blender until smooth, add the raisins, and stir.",
+        "Divide the mixture among muffin tins.",
+        "Bake in an air fryer. For a serving of 6 pieces, set the temperature to 160 degrees and the time to 17 minutes."
+      ]
+    },
+    {
+      "id": 41,
+      "title": "Mochi in the microwave",
+      "recipeType": "DESSERT",
+      "ingredients": [
+        "Glutinous (!) rice flour - 100 g",
+        "Liquid - 150 ml:",
+        "- water with food coloring",
+        "- or fruit juice",
+        "- or water with colored berry syrup",
+        "sugar - 30 g"
+      ],
+      "instructions": [
+        "Mix all ingredients in a glass container until smooth.",
+        "Cover with plastic wrap and heat in the microwave for about 3 minutes (the time depends on the power of the oven).",
+        "Indicator of dough readiness: it is very elastic and stretchy, and becomes more colorful as the flour bakes and loses its whiteness.",
+        "Cool the dough without opening the wrap.",
+        "Sprinkle starch on a board, carefully roll out the starch-dusted dough, and cut it into pieces large enough to wrap the filling.",
+        "or the filling: ricotta / very thick jam / fruit / chocolate, and combinations thereof. The main thing is that the filling is not wet, otherwise the dough will fall apart. You can freeze the filling in portions to make it easier to wrap it in the dough.",
+        "Seal each pastry like a dumpling and turn it seam-side down, shaping it into a ball.",
+        "Eat immediately or store in the refrigerator for no more than 12 hours. For longer storage, place in the freezer."
+      ]
+    },
+    {
+      "id": 42,
+      "title": "Fish soup",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Tuna (canned) - 500 g",
+        "Potatoes - 4 pcs.",
+        "Carrots - 2 pcs.",
+        "Onions - 2 pcs.",
+        "Salt to taste",
+        "Water - 3 l",
+        "Bay leaf",
+        "Black peppercorns"
+      ],
+      "instructions": [
+        "Thinly slice carrots, and cut potatoes in cubes",
+        "Poke holes in the washed and peeled onions.",
+        "Boil the onions in water for 20 min.",
+        "Add carrot, boil for 15 min.",
+        "Add potatoes, boil until done.",
+        "Add the fish and the spices and cook for another 5 minutes."
+      ]
+    },
+    {
+      "id": 43,
+      "title": "Eggplant \"Pizza\"",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "1 large eggplant",
+        "1 tomato",
+        "2 tablespoons tomato paste",
+        "2 cloves of garlic",
+        "Grated cheese",
+        "Basil",
+        "Salt",
+        "Bread"
+      ],
+      "instructions": [
+        "Wash the eggplant and cut it in half.",
+        "Make cuts in the flesh to form diamond shapes, rub the surface with a small amount of salt and olive oil.",
+        "Line an air fryer pan with parchment paper and place the eggplant halves skin-side up. Bake for 30 minutes at 160 degrees Celsius.",
+        "Chop the tomato in any way you like, mix with tomato paste and a pinch of salt. Chop the garlic and add to the tomatoes.",
+        "Turn the eggplants over and spread the tomatoes on top. Bake for another 10 minutes at 180 degrees Celsius.",
+        "Sprinkle grated cheese on each half and bake for another 5 minutes at 180 degrees Celsius.",
+        "Serve hot with slices of bread."
+      ]
+    },
+    {
+      "id": 44,
+      "title": "Lentil soup",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Water - 2.5 l",
+        "Lentils - 350 g",
+        "Tomatoes - 500 g",
+        "Carrot - 1 pc.",
+        "Onion - 1 pc.",
+        "Meat",
+        "Potatoes - 2-3",
+        "Sweet pepper - 1"
+      ],
+      "instructions": [
+        "Boil the lentils until soft (green - 20 min., red - 10 min.).",
+        "Chop the tomatoes.",
+        "Fry the onion, carrot, and bell pepper, then add the meat.",
+        "Cut the potatoes and add them to the lentils along with the fried vegetables.",
+        "Cook for another 20 minutes until the potatoes are done.",
+        "Season with salt, pepper, cilantro, or other herbs."
+      ]
+    },
+    {
+      "id": 45,
+      "title": "Pea pancakes",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Can of peas - 400 g",
+        "Eggs - 1-2",
+        "Wheat flour",
+        "Spices (e.g., curry)",
+        "Salt to taste"
+      ],
+      "instructions": [
+        "Drain the peas into a bowl.",
+        "Add the egg to the pea water and stir well",
+        "Add the flour in portions until the desired consistency is achieved",
+        "Add the spices and salt",
+        "Add the peas",
+        "Fry in a pan",
+        "Serve with mayonnaise, ketchup, or hot sauce."
+      ]
+    },
+    {
+      "id": 46,
+      "title": "Tortillas with zucchini and corn",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Zucchini",
+        "Corn",
+        "Grated cheese",
+        "Tortillas"
+      ],
+      "instructions": [
+        "Sauté the zucchini with oil in a frying pan until soft.",
+        "Add the corn and fry a little.",
+        "Remove the mixture from the pan.",
+        "Place the zucchini and corn mixture and grated cheese on one side of the tortilla and fold in half.",
+        "Heat on both sides until golden brown."
+      ]
+    },
+    {
+      "id": 47,
+      "title": "Coconut cookies in the microwave",
+      "recipeType": "DESSERT",
+      "ingredients": [
+        "2 tablespoons sugar",
+        "2 tablespoons flour",
+        "1/4 teaspoon baking powder",
+        "2 tablespoons vegetable oil",
+        "1 tablespoon milk",
+        "Coconut flakes"
+      ],
+      "instructions": [
+        "Mix everything except the flakes.",
+        "Add the flakes until the dough is thick enough to form cookies, knead well.",
+        "Form cookies, place on paper, bake for 1-2 minutes in the microwave."
+      ]
+    },
+    {
+      "id": 48,
+      "title": "Bigos",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Cabbage - 200 g",
+        "Sausages - 1 pc",
+        "Tomato paste - 2 tbsp",
+        "Spices",
+        "Vegetable oil"
+      ],
+      "instructions": [
+        "Chop the cabbage",
+        "Simmer until soft",
+        "Add tomato paste, simmer for another 5 minutes",
+        "Add chopped sausage, spices, and a little oil",
+        "Simmer for a few more minutes"
+      ]
+    },
+    {
+      "id": 49,
+      "title": "Boiled eggs",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Eggs"
+      ],
+      "instructions": [
+        "Place the eggs in cold water and bring to a boil over medium heat.",
+        "Cook for 4-6 minutes for soft-boiled eggs, or 8 minutes for hard-boiled eggs."
+      ]
+    },
+    {
+      "id": 50,
+      "title": "Pancakes",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Wheat flour ~ 400 g",
+        "Eggs - 2-3",
+        "Milk - 150-200 ml",
+        "Water - 150-200 ml",
+        "Vegetable oil",
+        "Sugar - 1-2 tbsp.",
+        "Pinch of salt"
+      ],
+      "instructions": [
+        "Break the eggs into a deep bowl, add salt and sugar, and stir with a whisk.",
+        "Add milk and stir well.",
+        "Add flour in portions, stir well, and break up any lumps.",
+        "Add oil.",
+        "Adjust the consistency of the batter by adding water or flour. A thinner batter is for pancakes, a thicker batter is for fritters.",
+        "Fry in a pan",
+        "Serve with yoghurt, fruit jam, or wrap in cheese and heat until it melts."
+      ]
+    },
+    {
+      "id": 51,
+      "title": "Cottage cheese spread",
+      "recipeType": "SNACK",
+      "ingredients": [
+        "Cottage cheese",
+        "Greek yogurt",
+        "Fresh dill/parsley",
+        "Basil",
+        "Pickled cucumbers",
+        "Finely chopped bell pepper",
+        "Ground pepper",
+        "Dried granulated garlic",
+        "Salt"
+      ],
+      "instructions": [
+        "Mix everything, choose proportions according to your taste, the paste should not be runny.",
+        "Spread it on toast or make lavash rolls with veggies and cheese."
+      ]
+    },
+    {
+      "id": 52,
+      "title": "Semolina porridge",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "200 ml milk",
+        "100 ml water",
+        "50 g semolina",
+        "1 tsp sugar",
+        "Salt"
+      ],
+      "instructions": [
+        "Boil the water.",
+        "Add the milk.",
+        "When the mixture comes to a boil, lower the heat and slowly add the semolina while stirring.",
+        "Cook on low heat until thickened."
+      ]
+    },
+    {
+      "id": 53,
+      "title": "Fruit salad",
+      "recipeType": "SNACK",
+      "ingredients": [
+        "Apple - 1",
+        "Banana - 1",
+        "Orange - 1",
+        "Optional - kiwi, berries, etc.",
+        "Sour cream + sugar or honey, or fruit yogurt for dressing"
+      ],
+      "instructions": [
+        "Cut all the fruit",
+        "Mix",
+        "Dress"
+      ]
+    },
+    {
+      "id": 54,
+      "title": "Chicken roast with potatoes",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Chicken fillet (thighs) - 500 g",
+        "Potatoes - 600 g",
+        "Red bell pepper - 200 g",
+        "Tomato - 100 g",
+        "Onion - 130 g",
+        "Garlic - 4 cloves",
+        "Parsley",
+        "Dill",
+        "Salt",
+        "Pepper",
+        "Paprika",
+        "Vegetable oil"
+      ],
+      "instructions": [
+        "Cut the chicken into small pieces.",
+        "Place the chicken in a bowl, add 0.5 tsp of salt and paprika, 2 pinches of black pepper, and 1 tbsp of vegetable oil. Mix well.",
+        "Pour the oil into a deep, wide frying pan and heat it up, then add the meat.",
+        "Fry the meat on all sides over medium heat for 10-12 minutes, stirring occasionally, then transfer to a plate.",
+        "Cut the onion into thin half-rings and the potatoes into quarters.",
+        "Place the potatoes in the pan with the oil from the chicken and fry over medium heat for 12-14 minutes.",
+        "Clean the bell pepper, cut into thin slices, and cut the tomato into medium-sized pieces. Finely chop the peeled garlic and greens with a knife.",
+        "Remove the potatoes from the pan, add the onion to the oil, and fry for 5 minutes, stirring.",
+        "Add the pepper to the onion and fry for another 5 minutes.",
+        "Add the potatoes, chicken, tomatoes, garlic, and herbs, and stir.",
+        "Add salt, pepper, and paprika, stir, and cover the pan with a lid.",
+        "Cook over medium heat for 10 minutes until fully cooked."
+      ]
+    },
+    {
+      "id": 55,
+      "title": "Rye bread",
+      "recipeType": "SNACK",
+      "ingredients": [
+        "Starter dough:",
+        "Water - 150 ml",
+        "Rye flour - 150 g",
+        "100% hydration sourdough starter - 40 g",
+        "Dough:",
+        "Starter - 340 g",
+        "Water - 100 ml",
+        "Rye flour - 200 g",
+        "Salt - 9 g"
+      ],
+      "instructions": [
+        "Mix the ingredients for the starter. Cover and leave for 12 hours at a temperature of 25 °C.",
+        "Mix the ingredients for the dough. Cover tightly and leave for 2 hours at 25 °C.",
+        "Shape the dough into a tight ball, sprinkle with rye flour, and place in a proofing basket for 40 minutes.",
+        "Bake for 30 minutes at 250 °C.",
+        "Cool for at least 4 hours"
+      ]
+    },
+    {
+      "id": 56,
+      "title": "Chicken with pesto",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Chicken",
+        "Pesto"
+      ],
+      "instructions": [
+        "Cut the raw chicken breast lengthwise into long strips",
+        "Place the pieces in a hot frying pan",
+        "Coat each piece with pesto and sprinkle with salt, bake on each side until done",
+        "Use for sandwiches or serve with side dishes."
+      ]
+    },
+    {
+      "id": 57,
+      "title": "Udon with chicken, mushrooms and vegetables",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Carrots",
+        "Sweet peppers",
+        "Other vegetables to taste",
+        "Chicken",
+        "(Shiitake) mushrooms",
+        "Udon noodles",
+        "To taste: ginger, hot pepper, soy sauce with oyster sauce and honey, or soy sauce with ketchup/tomato paste and honey",
+        "Sesame seeds"
+      ],
+      "instructions": [
+        "Cut the carrots and peppers and fry in a pan with a little oil",
+        "Fry the chicken/mushrooms with spices",
+        "Boil the udon (until slightly undercooked), transfer to the pan with the chicken, add a little water from the pasta pot",
+        "Add the vegetables",
+        "Add the seasonings and sauce",
+        "Sprinkle with sesame seeds"
+      ]
+    },
+    {
+      "id": 58,
+      "title": "Potato cream soup with broccoli and cheese",
+      "recipeType": "DINNER",
+      "ingredients": [
+        "Chicken breast on the bone - 500 g",
+        "Potatoes - 500 g",
+        "Broccoli - 150 g",
+        "Onion - 1",
+        "Carrot - 1",
+        "Cream 20% - 125 g",
+        "Hard cheese - 80 g",
+        "Bay leaf",
+        "Vegetable oil",
+        "Salt",
+        "Pepper"
+      ],
+      "instructions": [
+        "Wash and peel the vegetables",
+        "Prepare the broth from the chicken breast:",
+        "Cut the breast into pieces",
+        "Pour in 1.5 liters of water and place on the stove.",
+        "When it boils, remove all the foam.",
+        "Add the bay leaf.",
+        "Peel the onion and carrots, add half of the onion and coarsely chopped carrots to the broth.",
+        "Cook covered over low heat for 45 minutes.",
+        "You will need 300 ml of broth for the soup; the rest can be frozen, and the meat can be used for salads.",
+        "Dice the onion and carrot and sauté in vegetable oil for 5-7 minutes.",
+        "Peel and coarsely chop the potatoes.",
+        "Grate the cheese on a medium grater.",
+        "Wash the broccoli and cut into small florets.",
+        "Boil the broccoli in a separate pot for 3 minutes, then drain in a colander.",
+        "Transfer the sautéed onions and carrots to a pot, add the potatoes, pour in 300 ml of broth, and cook until the potatoes are done.",
+        "Remove the pot from the heat and blend the contents with a blender.",
+        "Add the cream and blend again.",
+        "Return the pot to the heat, add the cheese, and reduce the heat to low.",
+        "Stir the soup until the cheese has melted.",
+        "Add the broccoli, stir, and remove from the heat."
+      ]
+    },
+    {
+      "id": 59,
+      "title": "Pilaf",
+      "recipeType": "BREAKFAST",
+      "ingredients": [
+        "Chicken leg",
+        "Onion",
+        "2 carrots",
+        "5 cloves of garlic",
+        "Pilaf spice mix",
+        "1.5 cups of rice"
+      ],
+      "instructions": [
+        "Make a sauté from onions and carrots - fry finely chopped onions over low heat with a small amount of oil, then add grated carrots. The carrots should soften and brown in places.",
+        "Fry the chicken leg in a separate pan on both sides over medium heat until crispy.",
+        "Place the chicken and onions with carrots at the bottom of the pot. Place the rice, spices, and garlic on top. Pour water into the pot, 1 finger joint above the level of the rice.",
+        "Cook until the rice is ready without opening the pot or stirring."
+      ]
     }
   ]
 }
