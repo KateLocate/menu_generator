@@ -1,4 +1,4 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# This workflow will build a Java project with Maven and then test Spring Boot app.
 # It also creates an instance of PostgreSQL database.
 
 name: Menu Generator CI
