@@ -1,6 +1,6 @@
-.PHONY: list run build run-backend test-backend build-backend build-frontend
+.PHONY: list-commands run build run-backend test-backend build-backend build-frontend
 
-list:
+list-commands:
 	@LC_ALL=C $(MAKE) -pRrq -f $(firstword $(MAKEFILE_LIST)) : 2>/dev/null | \
 	awk -v RS= -F: '/(^|\n)# Files(\n|$$)/,/(^|\n)# Finished Make data base/ {if ($$1 !~ "^[#.]") {print $$1}}' | \
 	grep -E -v -e '^[^[:alnum:]]' -e '^$@$$'
@@ -19,6 +19,10 @@ test-backend:
 	cd backend && docker compose up --build \
 	& cd backend && mvn test \
 	&& docker compose down
+
+test-backend-ci:
+	@echo "~~~Running Spring Boot App Tests~~~"
+	cd backend && mvn test
 
 build:
 	@echo "~~~Build Menu App~~~"
