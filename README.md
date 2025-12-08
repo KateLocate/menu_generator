@@ -28,9 +28,9 @@ make build
 make run
 ```
 
-`make list` lists all available commands from the Makefile  
-`build` - builds both backend and frontend, compiles everything and creates JAR package     
-`run` - runs the JAR package locally
+`make list-commands` lists all available commands from the Makefile  
+`make build` - builds both backend and frontend, compiles everything and creates JAR package     
+`make run` - runs the JAR package locally
 
 ### Deploying / Publishing
 
@@ -40,13 +40,9 @@ dedicated to the deployment process.
 
 There is also a simple CI/CD workflow that runs backend tests for each push or PR into the `main` branch.
 
-## Features
+## Local deploy
 
-> http://127.0.0.1:8080/ - here the app with the frontend will be served   
-> http://127.0.0.1:8080/api/recipes - API endpoint for retrieving all the available recipes    
-> http://127.0.0.1:8080/api/recipes/0 - API endpoint for obtaining recipe by ID, here id = 0
-
-> API also supports PUT, POST and DELETE requests.
+> http://127.0.0.1:8080/ - the app with the frontend can be found here  
 
 
 ## Links
