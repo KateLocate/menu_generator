@@ -2,8 +2,7 @@ FROM alpine:3.22 AS build
 WORKDIR /app
 RUN apk add npm make maven
 COPY . .
-RUN make react
-RUN make jar
+RUN make build
 
 FROM bitnami/java:latest
 WORKDIR /app
