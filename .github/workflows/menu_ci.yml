@@ -40,7 +40,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build and test with Maven
-      run: cd backend && mvn test
+      run: make test-backend-ci
             
       env:
         POSTGRES_HOST: localhost
